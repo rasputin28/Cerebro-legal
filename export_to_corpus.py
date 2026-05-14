@@ -566,6 +566,107 @@ def export_legislacion(conn: sqlite3.Connection, src_db: str = "legislacion.db")
     conn.commit()
 
 
+# ---------- source: sentencias_pub (sentencias.db) -----------------------------
+
+def export_sentencias_pub(conn: sqlite3.Connection, src_db: str = "sentencias.db"):
+    src = sqlite3.connect(src_db)
+    src.row_factory = sqlite3.Row
+    n = src.execute("SELECT COUNT(*) FROM sentencias_meta").fetchone()[0]
+    print(f"sentencias_pub: {n} rows")
+    for r in src.execute("""
+        SELECT id_engrose, num_expediente, tipo_asunto, organo_radicacion, ponente,
+               fecha_resolucion, anio, votacion, epoca_numero, epoca_nombre, fuente, archivo_url
+        FROM sentencias_meta
+    """):
+        doc = {
+            "source": "scjn_sentencia",
+            "source_native_id": str(r["id_engrose"]),
+            "tipo": r["tipo_asunto"] or "sentencia",
+            "jerarquia": "pjf_sentencia",
+            "titulo": f"{r['tipo_asunto']} {r['num_expediente']}",
+            "clave": r["num_expediente"],
+            "instancia": "SCJN",
+            "organo": r["organo_radicacion"],
+            "fecha_emision": r["fecha_resolucion"],
+            "epoca": r["epoca_nombre"] or r["epoca_numero"],
+            "autor": r["ponente"],
+            "metadata": {"votacion": r["votacion"], "fuente": r["fuente"],
+                         "anio": r["anio"], "archivo_url": r["archivo_url"]},
+            "source_url": f"https://bj.scjn.gob.mx/documento/sentencias_pub/{r['id_engrose']}",
+        }
+        doc_id = insert_doc(conn, doc)
+        chunks = []
+        title = doc["titulo"]
+        if title: chunks.append({"chunk_type": "titulo", "text": title})
+        # If raw section parses exist, use those
+        for sec in src.execute("SELECT section_type, text FROM sentencias_section WHERE id_engrose=? ORDER BY section_index", (r["id_engrose"],)):
+            if sec[1] and len(sec[1]) > 30:
+                chunks.append({"chunk_type": sec[0] or "parrafo", "text": sec[1][:5000]})
+        # Fallback: if no sections yet, use body_html text
+        if len(chunks) == 1:
+            raw = src.execute("SELECT body_html FROM sentencias_raw WHERE id_engrose=?", (r["id_engrose"],)).fetchone()
+            if raw and raw[0]:
+                text = re.sub(r"<[^>]+>", " ", raw[0])
+                text = re.sub(r"\s+", " ", text).strip()
+                if text:
+                    chunks.append({"chunk_type": "cuerpo", "text": text[:8000]})
+        insert_chunks(conn, doc_id, chunks)
+    conn.commit()
+
+
+# ---------- source: biblioteca --------------------------------------------------
+
+def export_biblioteca(conn: sqlite3.Connection, src_db: str = "biblioteca.db"):
+    src = sqlite3.connect(src_db)
+    src.row_factory = sqlite3.Row
+    n = src.execute("SELECT COUNT(*) FROM biblioteca").fetchone()[0]
+    print(f"biblioteca: {n} rows")
+    for r in src.execute("SELECT id_native, titulo, resumen, autor, tema, coleccion, urlPrimo FROM biblioteca"):
+        doc = {
+            "source": "scjn_biblioteca",
+            "source_native_id": r["id_native"],
+            "tipo": "publicacion_academica",
+            "jerarquia": "doctrinal",
+            "titulo": r["titulo"],
+            "autor": r["autor"],
+            "metadata": {"tema": r["tema"], "coleccion": r["coleccion"]},
+            "raw_text": r["resumen"] or "",
+            "source_url": r["urlPrimo"],
+        }
+        doc_id = insert_doc(conn, doc)
+        chunks = []
+        if r["titulo"]: chunks.append({"chunk_type": "titulo", "text": r["titulo"]})
+        if r["resumen"]: chunks.append({"chunk_type": "resumen", "text": r["resumen"]})
+        insert_chunks(conn, doc_id, chunks)
+    conn.commit()
+
+
+# ---------- source: expedientes_pub --------------------------------------------
+
+def export_expedientes(conn: sqlite3.Connection, src_db: str = "expedientes.db"):
+    src = sqlite3.connect(src_db)
+    src.row_factory = sqlite3.Row
+    n = src.execute("SELECT COUNT(*) FROM expedientes").fetchone()[0]
+    print(f"expedientes_pub: {n} rows")
+    for r in src.execute("SELECT id_native, expediente, fechaResolucion, tema, tipoAsunto, materias, pertenencia, estado FROM expedientes"):
+        doc = {
+            "source": "scjn_expediente",
+            "source_native_id": r["id_native"],
+            "tipo": r["tipoAsunto"] or "expediente",
+            "jerarquia": "pjf_sentencia",
+            "titulo": f"{r['tipoAsunto']} {r['expediente']}",
+            "clave": r["expediente"],
+            "fecha_emision": r["fechaResolucion"],
+            "metadata": {"tema": r["tema"], "materias": r["materias"],
+                         "pertenencia": r["pertenencia"], "estado": r["estado"]},
+        }
+        doc_id = insert_doc(conn, doc)
+        chunks = [{"chunk_type": "titulo", "text": doc["titulo"] or ""}]
+        if r["tema"]: chunks.append({"chunk_type": "tema", "text": r["tema"]})
+        insert_chunks(conn, doc_id, chunks)
+    conn.commit()
+
+
 EXPORTERS = {
     "scjn_tesis": export_scjn_tesis,
     "scjn_historica": export_scjn_historica,
@@ -579,6 +680,9 @@ EXPORTERS = {
     "vtaquigraficas": export_vtaquigraficas,
     "votos_sent": export_votos_sent,
     "legislacion": export_legislacion,
+    "sentencias_pub": export_sentencias_pub,
+    "biblioteca": export_biblioteca,
+    "expedientes": export_expedientes,
 }
 
 
@@ -597,6 +701,8 @@ def main():
         "ejecutorias": "ejecutorias.db", "votos": "votos.db",
         "acuerdos": "acuerdos.db", "vtaquigraficas": "vtaquigraficas.db",
         "votos_sent": "votos_sent.db", "legislacion": "legislacion.db",
+        "sentencias_pub": "sentencias.db", "biblioteca": "biblioteca.db",
+        "expedientes": "expedientes.db",
     }
     for s in sources:
         path = HERE / SOURCE_DB.get(s, f"{s}.db")
