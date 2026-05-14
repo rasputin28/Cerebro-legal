@@ -1,0 +1,29 @@
+ficha_caso links: 0
+OC links: 188
+  casos_convocatoria_audiencias_publicas.cfm
+  casos_convocatoria_audiencias_publicas.cfm?lang=es
+  docs/Sistematizacion.pdf
+  docs/Sistematizacion.pdf?lang=es
+  docs/regla_victimas/victimas_esp.pdf
+
+=== 23 reqs / 21 unique ===
+    3  POST https://www.corteidh.or.cr/cdn-cgi/rum
+    1  GET https://www.corteidh.or.cr/casos-sentencias.cfm
+    1  GET https://www.corteidh.or.cr/cdn-cgi/challenge-platform/scripts/jsd/main.js
+    1  GET https://www.corteidh.or.cr/cdn-cgi/challenge-platform/h/b/scripts/jsd/883a1f27d85f/main.js
+    1  POST https://www.corteidh.or.cr/cdn-cgi/challenge-platform/h/b/jsd/oneshot/883a1f27d85f/0.3259063871811453:1778768476:6QVk4gWUK1WZMXGM5TzaY8V1omT3Sng_dSPel9Nn4-4/9fbaa1e5194b01d9
+    1  GET https://www.corteidh.or.cr/opiniones_consultivas.cfm
+    1  GET https://www.corteidh.or.cr/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js
+    1  GET https://www.corteidh.or.cr/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js
+    1  GET https://www.corteidh.or.cr/js/casos.js
+    1  GET https://www.corteidh.or.cr/js/main.js
+    1  GET https://www.corteidh.or.cr/js/jquery.mousewheel.min.js
+    1  GET https://www.corteidh.or.cr/js/jquery.min.js
+    1  GET https://www.corteidh.or.cr/js/raphael.min.js
+    1  GET https://www.corteidh.or.cr/js/jquery-3.5.1.slim.min.js
+    1  GET https://cdn.matomo.cloud/corteidhorcr.matomo.cloud/matomo.js
+    1  GET https://www.corteidh.or.cr/js/popper.min.js
+    1  POST https://www.google-analytics.com/g/collect
+    1  GET https://www.corteidh.or.cr/js/bootstrap.min.js
+    1  POST https://corteidhorcr.matomo.cloud/matomo.php
+    1  POST https://www.corteidh.or.cr/get_jurisprudencia_search_tipo.cfm

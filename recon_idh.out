@@ -1,0 +1,59 @@
+
+--- https://www.corteidh.or.cr/casos-sentencias.cfm ---
+  links sample (0 unique):
+  tables: 0
+  case-style matches: 0
+
+--- https://www.corteidh.or.cr/opiniones_consultivas.cfm ---
+  links sample (179 unique):
+    casos_aplicacion_articulo_65_convencion.cfm
+    casos_aplicacion_articulo_65_convencion.cfm?lang=es
+    casos_convocatoria_audiencias_publicas.cfm
+    casos_convocatoria_audiencias_publicas.cfm?lang=es
+    casos_en_supervision_por_pais.cfm
+    casos_en_supervision_por_pais.cfm?lang=es
+    casos_en_supervision_por_pais_archivados.cfm
+    casos_en_supervision_por_pais_archivados.cfm?lang=es
+    casos_en_tramite.cfm
+    casos_en_tramite.cfm?lang=es
+    casos_resoluciones_fondo_legal.cfm
+    casos_resoluciones_fondo_legal.cfm?lang=es
+    casos_sentencias.cfm
+    casos_sentencias.cfm?lang=es
+    http://corteidh.or.cr/docs/opiniones/seriea_27_esp.pdf
+  tables: 87
+  case-style matches: 0
+
+--- https://www.corteidh.or.cr/cf/Jurisprudencia2/ ---
+  links sample (0 unique):
+  tables: 0
+  case-style matches: 0
+
+--- https://www.corteidh.or.cr/cf/Jurisprudencia2/busqueda_casos_contenciosos.cfm ---
+  links sample (0 unique):
+  tables: 0
+  case-style matches: 0
+
+Dumped to /home/rasputinmac/scjn-scraper/api-map-idh.json
+
+=== 27 reqs / 22 unique ===
+    4  POST https://www.corteidh.or.cr/cdn-cgi/rum
+    2  GET https://www.corteidh.or.cr/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js
+    2  GET https://www.corteidh.or.cr/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js
+    1  GET https://www.corteidh.or.cr/casos-sentencias.cfm
+    1  GET https://www.corteidh.or.cr/cdn-cgi/challenge-platform/scripts/jsd/main.js
+    1  GET https://www.corteidh.or.cr/cdn-cgi/challenge-platform/h/b/scripts/jsd/883a1f27d85f/main.js
+    1  POST https://www.corteidh.or.cr/cdn-cgi/challenge-platform/h/b/jsd/oneshot/883a1f27d85f/0.3259063871811453:1778768476:6QVk4gWUK1WZMXGM5TzaY8V1omT3Sng_dSPel9Nn4-4/9fba9d7cadf97a2d
+    1  GET https://www.corteidh.or.cr/opiniones_consultivas.cfm
+    1  GET https://www.corteidh.or.cr/js/raphael.min.js
+    1  GET https://www.corteidh.or.cr/js/jquery.mousewheel.min.js
+    1  GET https://www.corteidh.or.cr/js/main.js
+    1  GET https://www.corteidh.or.cr/js/jquery.min.js
+    1  GET https://www.corteidh.or.cr/js/jquery-3.5.1.slim.min.js
+    1  GET https://www.corteidh.or.cr/js/casos.js
+    1  GET https://www.corteidh.or.cr/js/popper.min.js
+    1  POST https://www.google-analytics.com/g/collect
+    1  GET https://www.corteidh.or.cr/js/bootstrap.min.js
+    1  POST https://corteidhorcr.matomo.cloud/matomo.php
+    1  POST https://www.corteidh.or.cr/get_jurisprudencia_search_tipo.cfm
+    1  GET https://www.corteidh.or.cr/cf/Jurisprudencia2/

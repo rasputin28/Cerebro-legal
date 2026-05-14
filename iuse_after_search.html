@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1"><title>
+
+</title><link href="Estilos/TesisJur.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        body
+        {
+            background: #fff url(Images/fondo_principal.jpg) no-repeat top center;
+        }
+        
+        
+        .texto, .texto:hover, texto:focus
+        {
+            border: solid 1px #8a9;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            margin: 1px;
+            padding: 0px 2px;
+            font-weight: normal;
+        }
+        .texto:hover
+        {
+            border: solid 1px #465;
+        }
+        .texto:focus
+        {
+            border: solid 2px #bc5;
+            margin: 0px;
+        }
+        h2
+        {
+            display: inline;
+            font-family: Arial;
+        }
+        .celda, .medCelda, .celdaI, .medCeldaI, .celdaMax
+        {
+            border: dotted 1px #bdc;
+            width: 155px;
+            height: 22px;
+            padding: 4px;
+            display: table;
+            float: left;
+            vertical-align: middle;
+        }
+        .celda, .medCelda, .celdaMax
+        {
+            border-left: none;
+        }
+        .medCeldaI
+        {
+            width: 72px;
+        }
+        .medCelda
+        {
+            width: 73px;
+        }
+        .celdaMax
+        {
+            width: 650px;
+        }
+    </style>
+    <script async="" src="https://www.te.gob.mx/18f5227b-e27b-445a-a53f-f845fbe69b40/stormcaster.js"></script><script type="text/javascript" language="javascript">
+        function ValidarFormulario(sender, args) {
+            var si = false;
+            var todas = true;
+            var inputs = document.getElementById("divTesisJur").getElementsByTagName("input");
+            for (var i in inputs)
+                if (inputs[i].type == "checkbox")
+                    si = si || inputs[i].checked;
+            todas = todas && si;
+            si = false;
+            var inputs = document.getElementById("divUbica").getElementsByTagName("input");
+            for (var i in inputs)
+                if (inputs[i].type == "checkbox")
+                    si = si || inputs[i].checked;
+            todas = todas && si;
+            si = false;
+            var inputs = document.getElementById("divSalas").getElementsByTagName("input");
+            for (var i in inputs)
+                if (inputs[i].type == "checkbox")
+                    si = si || inputs[i].checked;
+            todas = todas && si;
+            si = false;
+            var inputs = document.getElementById("divEpoca").getElementsByTagName("input");
+            for (var i in inputs)
+                if (inputs[i].type == "checkbox")
+                    si = si || inputs[i].checked;
+            todas = todas && si;
+            args.IsValid = todas;
+        }
+    </script>
+<script>var __uzdbm_1 = "8d862ee3-ff6c-4015-8f4e-89fcc2e3e742";var __uzdbm_2 = "MmFiMDQ2YzUtY2g0Yi00YTY0LWEwZDYtMDM3M2QzYjFmY2E3JDE4Ny4xNTIuMTY1LjE0OA==";var __uzdbm_3 = "7f90008d862ee3-ff6c-4015-8f4e-89fcc2e3e7421-17787740850415909-0039b7305194fc7c9c916";var __uzdbm_4 = "false";var __uzdbm_5 = "uzmx";var __uzdbm_6 = "7f9000a01f1887-afd2-46ff-b4c9-187a55cad00e1-17787740850415909-cbbdbaf9ae28a5d016";var __uzdbm_7 = "te.gob.mx";</script> <script>   (function (w, d, e, u, c, g, a, b) {     w["SSJSConnectorObj"] = w["SSJSConnectorObj"] || {       ss_cid: c,       domain_info: "auto",     };     w[g] = function (i, j) {       w["SSJSConnectorObj"][i] = j;     };     a = d.createElement(e);     a.async = true;     if (       navigator.userAgent.indexOf('MSIE') !== -1 ||       navigator.appVersion.indexOf('Trident/') > -1     ) {       u = u.replace("/advanced/", "/advanced/ie/");     }     a.src = u;     b = d.getElementsByTagName(e)[0];     b.parentNode.insertBefore(a, b);   })(     window, document, "script", "https://www.te.gob.mx/18f5227b-e27b-445a-a53f-f845fbe69b40/stormcaster.js", "ch4d", "ssConf"   );   ssConf("c1", "https://www.te.gob.mx");   ssConf("c3", "c99a4269-161c-4242-a3f0-28d44fa6ce24");   ssConf("au", "te.gob.mx");   ssConf("cu", "validate.perfdrive.com, ssc"); </script></head>
+<body>
+    <form name="form1" method="post" action="./BusquedaAvanzada.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="form1" style="width: 1024px; margin: 0px auto;">
+<div>
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE1MTI2OTA4ODIPZBYCAgMPZBYKAgMPDxYEHgRUZXh0BRJCw7pzcXVlZGEgQXZhbnphZGEeB1Rvb2xUaXBlZGQCBQ8PFgQfAQUIUmVncmVzYXIfAGVkZAIHDw8WAh4MRXJyb3JNZXNzYWdlBTFTZSByZXF1aWVyZSBxdWUgc2UgaW5kaXF1ZW4gbGFzIHBhbGFicmFzIGEgYnVzY2FyZGQCCQ8PFgIfAgVHU2UgcmVxdWllcmUgaW5kaWNhciBhbCBtZW5vcyB1bmEgb3BjacOzbiBkZSBiw7pzcXVlZGEgcG9yIGNhZGEgYXBhcnRhZG9kZAILD2QWAmYPZBYCAgEPZBZQAgEPDxYEHwAFB0J1c2NhcjofAWVkZAIFDxAPFgYfAAUEVG9kbx8BBRxTZWxlY2Npb25hIHRvZG9zIGxvcyBmaWx0cm9zHgdDaGVja2VkZ2RkZGQCBw8QDxYGHwAFDkp1cmlzcHJ1ZGVuY2lhHwEFGEJ1c2NhIGVuIGp1cmlzcHJ1ZGVuY2lhcx8DZ2RkZGQCCQ8QDxYGHwAFBVRlc2lzHwEFDkJ1c2NhIGVuIHRlc2lzHwNnZGRkZAILDxAPFgYfAAUFVG9kYXMfAWUfA2dkZGRkAg0PEA8WBh8ABQVSdWJybx8BBTdCdXNjYSBlbiBsYSBzZWNjacOzbiBkZSBydWJybyBkZSBqdXJpc3BydWRlbmNpYSBvIHRlc2lzHwNnZGRkZAIPDxAPFgYfAAUFVGV4dG8fAQU3QnVzY2EgZW4gbGEgc2VjY2nDs24gZGUgdGV4dG8gZGUganVyaXNwcnVkZW5jaWEgbyB0ZXNpcx8DZ2RkZGQCEQ8QDxYGHwAFC1ByZWNlZGVudGVzHwEFPUJ1c2NhIGVuIGxhIHNlY2Npw7NuIGRlIHByZWNlZGVudGVzIGRlIGp1cmlzcHJ1ZGVuY2lhIG8gdGVzaXMfA2dkZGRkAhMPEA8WBh8ABQ1Mb2NhbGl6YWNpw7NuHwEFcEJ1c2NhIGVuIGxhIHNlY2Npw7NuIGRlIGFjdG9yZXMsIGNsYXZlLCBub3RhIGRlIG9ibGlnYXRvcmllZGFkIHkgZGF0b3MgZGUgcHVibGljYWNpw7NuIGRlIGp1cmlzcHJ1ZGVuY2lhIG8gdGVzaXMfA2dkZGRkAhUPEA8WBh8ABQVUb2Rhcx8BZR8DZ2RkZGQCFw8PFgIfAQUGQnVzY2FyZGQCGQ8QDxYGHwAFHlNlbGVjY2lvbmFyIHRvZGFzIGxhcyBvcGNpb25lcx8BZR8DZ2RkZGQCGw8QDxYGHwAFAlNTHwFlHwNnZGRkZAIdDxAPFgYfAAUCU0cfAWUfA2dkZGRkAh8PEA8WBh8ABQJTTR8BZR8DZ2RkZGQCIQ8QDxYGHwAFAlNYHwFlHwNnZGRkZAIjDxAPFgYfAAUDU0RGHwFlHwNnZGRkZAIlDxAPFgYfAAUCU1QfAWUfA2dkZGRkAicPEA8WBh8ABQVUb2Rhcx8BZR8DZ2RkZGQCKQ8PFgQfAAUGw4lwb2NhHwFlZGQCKw8QDxYGHwAFBDNlcmEfAWUfA2dkZGRkAi0PEA8WBh8ABQM0dGEfAWUfA2dkZGRkAi8PEA8WBh8ABQM1dGEfAWUfA2dkZGRkAjEPEA8WAh8DZ2RkZGQCMw8QDxYCHwNnZGRkZAI1DxAPFgYfAAUFVG9kYXMfAWUfA2dkZGRkAjcPDxYEHwAFC01hZ2lzdHJhZG9zHwFlZGQCOQ8QDxYCHgtfIURhdGFCb3VuZGdkEBUcBVRvZG9zIUFybWFuZG8gSXNtYWVsIE1haXRyZXQgSGVybsOhbmRlehlDbGF1ZGlhIFZhbGxlIEFndWlsYXNvY2hvFUV2YSBCYXJyaWVudG9zIFplcGVkYR5GZWxpcGUgQWxmcmVkbyBGdWVudGVzIEJhcnJlcmEZRmVsaXBlIGRlIGxhIE1hdGEgUGl6YcOxYRtHYWJyaWVsYSBWaWxsYWZ1ZXJ0ZSBDb2VsbG8iR2lsYmVydG8gZGUgR3V6bcOhbiBCw6F0aXogR2FyY8OtYRdIw6ljdG9yIFJvbWVybyBCb2xhw7Fvcx5JcmluYSBHcmFjaWVsYSBDZXJ2YW50ZXMgQnJhdm8USXhlbCBNZW5kb3phIEFyYWfDs24hSmFuaW5lIE1hZGVsaW5lIE90w6Fsb3JhIE1hbGFzc2lzHUpvc8OpIEFudG9uaW8gVHJvbmNvc28gw4F2aWxhGEpvc8OpIEx1aXMgQ2ViYWxsb3MgRGF6YRdMdWlzIEVzcMOtbmRvbGEgTW9yYWxlcyNNYXJjZWxhIEVsZW5hIEZlcm7DoW5kZXogRG9tw61uZ3VleiBNYXLDrWEgQ2VjaWxpYSBHdWV2YXJhIHkgSGVycmVyYRlNYXJpYSBEb2xvcmVzIEzDs3BleiBMb3phIE1hcsOtYSBHdWFkYWx1cGUgVsOhenF1ZXogT3JvemNvG03Ds25pY2EgQXJhbMOtIFNvdG8gRnJlZ29zbyFOZXJlaWRhIEJlcmVuaWNlIMOBdmFsb3MgVsOhenF1ZXoYT21hciBIZXJuw6FuZGV6IEVzcXVpdmVsFVJlYmVjYSBCYXJyZXJhIEFtYWRvchtSZXllcyBSb2Ryw61ndWV6IE1vbmRyYWfDs24XUm9zZWxpYSBCdXN0aWxsbyBNYXLDrW4aUnViw6luIEplc8O6cyBMYXJhIFBhdHLDs24dU2VyZ2lvIEFydHVybyBHdWVycmVybyBPbHZlcmETU2VyZ2lvIERpYXogUmVuZMOzbhUcBVRvZG9zAjQ4Ajk0Ajg1Ajc0AjczAjkwAjkzAjQ5Ajk5AzEwOAI1MAMxMDYCODgCOTECODcDMTA3AzEwMQMxMDMCNzgDMTA5AzExMAI5NwI3NwMxMDUCOTICODEDMTA0FCsDHGdnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dkZAI7Dw8WBB8ABQVBY3Rvch8BZWRkAj8PDxYEHwAFClNlY3JldGFyaW8fAWVkZAJDDw8WBB8ABQRBw7FvHwFlZGQCRQ8QZBAVHwVUb2RvcwQxOTk3BDE5OTgEMTk5OQQyMDAwBDIwMDEEMjAwMgQyMDAzBDIwMDQEMjAwNQQyMDA2BDIwMDcEMjAwOAQyMDA5BDIwMTAEMjAxMQQyMDEyBDIwMTMEMjAxNAQyMDE1BDIwMTYEMjAxNwQyMDE4BDIwMTkEMjAyMAQyMDIxBDIwMjIEMjAyMwQyMDI0BDIwMjUEMjAyNhUfBVRvZG9zBDE5OTcEMTk5OAQxOTk5BDIwMDAEMjAwMQQyMDAyBDIwMDMEMjAwNAQyMDA1BDIwMDYEMjAwNwQyMDA4BDIwMDkEMjAxMAQyMDExBDIwMTIEMjAxMwQyMDE0BDIwMTUEMjAxNgQyMDE3BDIwMTgEMjAxOQQyMDIwBDIwMjEEMjAyMgQyMDIzBDIwMjQEMjAyNQQyMDI2FCsDH2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dkZAJHDw8WBB8ABRZUaXBvIGRlIEp1cmlzcHJ1ZGVuY2lhHwFlZGQCSQ8QZBAVBAVUb2RvcxZBY3VlcmRvIGRlIENvbXBldGVuY2lhCUluY2lkZW50ZQpBY3VtdWxhZG9zFQQFVG9kb3MWQWN1ZXJkbyBkZSBDb21wZXRlbmNpYQlJbmNpZGVudGUKQWN1bXVsYWRvcxQrAwRnZ2dnZGQCSw9kFgICAw8QZA8WGWYCAQICAgMCBAIFAgYCBwIIAgkCCgILAgwCDQIOAg8CEAIRAhICEwIUAhUCFgIXAhgWGRAFBVRvZG9zBQFAZxAFIkRFUkVDSE9TIEVMRUNUT1JBTEVTIEZVTkRBTUVOVEFMRVMFATFnEAURUFJPQ0VTTyBFTEVDVE9SQUwFATJnEAUORklTQ0FMSVpBQ0nDk04FATVnEAUORklOQU5DSUFNSUVOVE8FATZnEAUcU1VKRVRPUyBERSBERVJFQ0hPIEVMRUNUT1JBTAUBN2cQBSZWT1RPIERFIExPUyBNRVhJQ0FOT1MgRU4gRUwgRVhUUkFOSkVSTwUBOGcQBSVKVVNUSUNJQSBFTEVDVE9SQUwgKERFUkVDSE8gUFJPQ0VTQUwpBQE5ZxAFG0NPTkZMSUNUT1MgSU5UUkFQQVJUSURJU1RBUwUCMTBnEAUHTEFCT1JBTAUCMTFnEAUFT1RST1MFAjEyZxAFKzAxLiBQUklOQ0lQSU9TIERFIElOVEVSUFJFVEFDScOTTiBFTEVDVE9SQUwFAjE0ZxAFJjAyLiBERVJFQ0hPUyBFTEVDVE9SQUxFUyBGVU5EQU1FTlRBTEVTBQIxNWcQBS8wMy4gRVNUUlVDVFVSQUNJw5NOIERFIExPUyDDk1JHQU5PUyBFTEVDVE9SQUxFUwUCMTZnEAUVMDQuIFBST0NFU08gRUxFQ1RPUkFMBQIxN2cQBRYwNS4gSlVTVElDSUEgRUxFQ1RPUkFMBQIxOGcQBRcwNi4gUEFSVElET1MgUE9Mw41USUNPUwUCMTlnEAU+MDcuIEZJTkFOQ0lBTUlFTlRPIFBPTMONVElDTywgRklTQ0FMSVpBQ0nDk04gWSBSRVNQT05TQUJJTElEQUQFAjIwZxAFLDA4LiBTSVNURU1BIEVMRUNUT1JBTDogRsOTUk1VTEFTIEVMRUNUT1JBTEVTBQIyMWcQBSQwOS4gTUVDQU5JU01PUyBERSBERU1PQ1JBQ0lBIERJUkVDVEEFAjIyZxAFIDEwLiBWT1RPOiBNT0RBTElEQURFUyBFU1BFQ0lBTEVTBQIyM2cQBT0xMS4gTUVDQU5JU01PUyBFU1BFQ0lBTEVTIERFIFBBUlRJQ0lQQUNJw5NOIFkgUkVQUkVTRU5UQUNJw5NOBQIyNGcQBSMxMi4gUFJPQ0VTT1MgRUxFQ1RPUkFMRVMgRVNQRUNJQUxFUwUCMjVnEAUJMTMuIE9UUk9TBQIyNmcQBQFkBQIyN2cWAWZkAk0PZBYCAgMPEGRkFgBkAk8PZBYCAgMPEGRkFgBkAlEPDxYEHwAFDE9yZGVuYXIgcG9yOh8BZWRkAlMPEA8WBB8ABQVDbGF2ZR8BZWRkZGQCVQ8QDxYEHwAFBVJ1YnJvHwFlZGRkZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WGgUJY2hrU2VsQWxsBQhjaGtKdXJpcwUIY2hrVGVzaXMFC2Noa1Rlc2lzSnVyBQhjaGtSdWJybwUIY2hrVGV4dG8FCGNoa1ByZWNzBQhjaGtMb2NhbAUFY2hrVFQFBWJvdG9uBQdjaGtUb2RvBQdjaGtlc3VwBQZjaGtlc2cFBmNoa2VzbQUGY2hrZXN4BQdjaGtlc2RmBQZjaGtlc3QFCGNoa1NhbGFUBQVjaGtFMwUFY2hrRTQFBWNoa0U1BQVjaGtFNgUFY2hrRTcFCWNoa0Vwb2NhVAUIb3B0Q2xhdmUFCG9wdFJ1YnJvDOQMGnJiucaotHY0i+a+y6kirq+cQ3A4/3X14BNQ+84=">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/IUSEapp/WebResource.axd?d=PupKk9aErD8m3hP2FFT7w1Q3KGNBgnB6prWiKLcAEFwFQq26OrXU-5FlQ2UpO72L-JhWIU5diQ0QFzqzY_k0wFfTsgp6ZNokp8UX9Vl0MVw1&amp;t=638941994805310136" type="text/javascript"></script>
+
+
+<script src="/IUSEapp/ScriptResource.axd?d=furz_9aMVc3eXVPNAQtsVuH_GyXhll8vCABARf_A8o-bDTQIndtlEgtdZpX1QeLuWwPPXTa5sbOWUOgGqHMiipJKDLMe1lzLY3j2znic6IR84_nvkoGIBSrb6yXmS1H-YuYv6uU2LvFlhUk8z-8hoY8h0FOpCBP3US1a6O6HJtk1&amp;t=ffffffffe6692900" type="text/javascript"></script>
+<script src="/IUSEapp/ScriptResource.axd?d=8J1QtLuZkN2bIAw-PC0Ve1qg-vk0lUbDEGDSVO1glPfAJ0O_3CsrhWRUsbX-vDxeXUSUBSuijLLaGrVwPT5YCRkMlj2fG4hEXcIZq84734hwH832mJQlbbEJogzpQDgVXomZcznsapljBv64tatJhQfT9egyAiJ8CNl2_nlvH0xuZNhqDspDSzPLYRciPZ1e0&amp;t=32e5dfca" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/IUSEapp/ScriptResource.axd?d=0w5N5-22ZVK0V-FCi7-fLKElOxFoMsezYQjGiuVKk4xQRnf0OB-K80tw6pxBdffhknUb-8zMudII7VvRQPtZCZ0DaBRPdMo7eKKtKuknEzjTdOsQRR1Q0UPdPq0YVpnFh195o6uYnse3E68NASf6I-7wA8Y-dhkVBH9C2PbxJRk3Vu7mv24PldoyXI3jShmo0&amp;t=32e5dfca" type="text/javascript"></script>
+<script src="/IUSEapp/WebResource.axd?d=GwUZuVFc68VPQu1IFmAjRu8buSQvNEMIXnIjLfUQ8ec8mC_hUJ5R-6N0Vdy8RhQchOKaXcopp5S9AdqoeD5aXsEULLyf-y2kbRHQmskoKJY1&amp;t=638941994805310136" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C8F8E868">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="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">
+</div>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('scmBusqueda2', 'form1', ['tuppBusqueda2',''], [], [], 90, '');
+//]]>
+</script>
+
+    <div>
+        <img src="images/IUS_encabezado2.jpg">
+    </div>
+    <div class="toolbar">
+        <table style="width: 100%; margin-top: 10px;">
+            <tbody><tr>
+                <td class="tbMid">
+                    <div style="padding-top: 3px; font-size: 18px;">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span id="lblMenuEncabezado">Búsqueda Avanzada</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                </td>
+                <td class="tbDer">
+                    <a id="lnkRegresar" title="Regresar" class="btnRegresar" href="javascript:__doPostBack('lnkRegresar','')"></a>
+                </td>
+            </tr>
+        </tbody></table>
+    </div>
+    <div style="font-family: Arial">
+        &nbsp;
+        <span id="RequiredFieldValidator1" style="color:Red;display:none;">Se requiere que se indiquen las palabras a buscar</span>
+        <span id="CustomValidator1" style="color:Red;display:none;">Se requiere indicar al menos una opción de búsqueda por cada apartado</span>
+    </div>
+    <div id="uppBusqueda2">
+	
+            <div id="pnlTodo" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'boton')">
+		
+                <div id="formulario" style="width: 900px; height: 100%; margin: 0px 50px; font-family: Arial;
+                    font-size: 16px; font-weight: bold;">
+                    <div style="float: none; display: block; width: 100%; margin: 10px 0px;">
+                        <div style="float: left; display: block;">
+                            <div style="display: block; margin: 10px 0px; width: 830px; height: 30px;">
+                                <div class="celdaI">
+                                    <span id="lblMenuBuscar">Buscar:</span>
+                                </div>
+                                <div class="celdaMax">
+                                    <input name="txtBuscar" type="text" id="txtBuscar" class="texto">
+                                </div>
+                            </div>
+                            <div id="divTesisSelectAll" style="display: block; margin: 10px 0px; width: 830px;
+                                height: 30px;">
+                                <div class="celda">
+                                    <span title="Selecciona todos los filtros"><input id="chkSelAll" type="checkbox" name="chkSelAll" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkSelAll\',\'\')', 0)"><label for="chkSelAll">Todo</label></span>
+                                </div>
+                            </div>
+                            <div id="divTesisJur" style="display: block; margin: 10px 0px; width: 830px; height: 30px;">
+                                <div class="celdaI">
+                                    <span title="Busca en jurisprudencias"><input id="chkJuris" type="checkbox" name="chkJuris" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkJuris\',\'\')', 0)"><label for="chkJuris">Jurisprudencia</label></span>
+                                </div>
+                                <div class="celda">
+                                    <span title="Busca en tesis"><input id="chkTesis" type="checkbox" name="chkTesis" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkTesis\',\'\')', 0)"><label for="chkTesis">Tesis</label></span>
+                                </div>
+                                <div class="celda">
+                                    <input id="chkTesisJur" type="checkbox" name="chkTesisJur" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkTesisJur\',\'\')', 0)"><label for="chkTesisJur">Todas</label>
+                                </div>
+                            </div>
+                            <div id="divUbica" style="display: block; margin: 10px 0px; width: 830px; height: 30px;">
+                                <div class="celdaI">
+                                    <span title="Busca en la sección de rubro de jurisprudencia o tesis"><input id="chkRubro" type="checkbox" name="chkRubro" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkRubro\',\'\')', 0)"><label for="chkRubro">Rubro</label></span>
+                                </div>
+                                <div class="celda">
+                                    <span title="Busca en la sección de texto de jurisprudencia o tesis"><input id="chkTexto" type="checkbox" name="chkTexto" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkTexto\',\'\')', 0)"><label for="chkTexto">Texto</label></span>
+                                </div>
+                                <div class="celda">
+                                    <span title="Busca en la sección de precedentes de jurisprudencia o tesis"><input id="chkPrecs" type="checkbox" name="chkPrecs" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkPrecs\',\'\')', 0)"><label for="chkPrecs">Precedentes</label></span>
+                                </div>
+                                <div class="celda">
+                                    <span title="Busca en la sección de actores, clave, nota de obligatoriedad y datos de publicación de jurisprudencia o tesis"><input id="chkLocal" type="checkbox" name="chkLocal" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkLocal\',\'\')', 0)"><label for="chkLocal">Localización</label></span>
+                                </div>
+                                <div class="celda">
+                                    <input id="chkTT" type="checkbox" name="chkTT" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkTT\',\'\')', 0)"><label for="chkTT">Todas</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <input type="image" name="boton" id="boton" title="Buscar" class="btnBuscar" src="Images/blanco.png" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;boton&quot;, &quot;&quot;, true, &quot;valForma&quot;, &quot;&quot;, false, false))" style="border-width:0px;">
+                        
+                    </div>
+                    <div class="celdaI" style="width: 688px; display: table; float: none; margin: 10px 0px;">
+                        <input id="chkTodo" type="checkbox" name="chkTodo" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkTodo\',\'\')', 0)"><label for="chkTodo">Seleccionar todas las opciones</label>
+                    </div>
+                    <div id="divSalas" style="width: 100%; display: table; float: none; margin: 10px 0px;">
+                        <div class="medCeldaI">
+                            <input id="chkesup" type="checkbox" name="chkesup" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkesup\',\'\')', 0)"><label for="chkesup">SS</label>
+                        </div>
+                        <div class="medCelda">
+                            <input id="chkesg" type="checkbox" name="chkesg" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkesg\',\'\')', 0)"><label for="chkesg">SG</label>
+                        </div>
+                        <div class="medCelda">
+                            <input id="chkesm" type="checkbox" name="chkesm" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkesm\',\'\')', 0)"><label for="chkesm">SM</label>
+                        </div>
+                        <div class="medCelda">
+                            <input id="chkesx" type="checkbox" name="chkesx" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkesx\',\'\')', 0)"><label for="chkesx">SX</label>
+                        </div>
+                        <div class="medCelda">
+                            <input id="chkesdf" type="checkbox" name="chkesdf" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkesdf\',\'\')', 0)"><label for="chkesdf">SDF</label>
+                        </div>
+                        <div class="medCelda">
+                            <input id="chkest" type="checkbox" name="chkest" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkest\',\'\')', 0)"><label for="chkest">ST</label>
+                        </div>
+                        <div class="celda">
+                            <input id="chkSalaT" type="checkbox" name="chkSalaT" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkSalaT\',\'\')', 0)"><label for="chkSalaT">Todas</label>
+                        </div>
+                    </div>
+                    <div id="divEpoca" style="width: 100%; display: table; float: none; margin: 5px 0px;">
+                        <div class="celdaI" style=" width:120px!important">
+                            <span id="lblMenuEpoca">Época</span>
+                        </div>
+                        <div class="celda" style=" width:120px!important">
+                            <input id="chkE3" type="checkbox" name="chkE3" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkE3\',\'\')', 0)"><label for="chkE3">3era</label>
+                        </div>
+                        <div class="celda" style=" width:120px!important">
+                            <input id="chkE4" type="checkbox" name="chkE4" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkE4\',\'\')', 0)"><label for="chkE4">4ta</label>
+                        </div>
+                        <div class="celda" style=" width:120px!important">
+                            <input id="chkE5" type="checkbox" name="chkE5" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkE5\',\'\')', 0)"><label for="chkE5">5ta</label>
+                        </div>
+                        <div class="celda" style=" width:120px!important">
+                            <input id="chkE6" type="checkbox" name="chkE6" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkE6\',\'\')', 0)"><label for="chkE6">6ta</label>
+                        </div>
+                        <div class="celda" style=" width:120px!important">
+                            <input id="chkE7" type="checkbox" name="chkE7" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkE7\',\'\')', 0)"><label for="chkE7">7ma</label>
+                        </div>
+                        <div class="celda" style=" width:120px!important">
+                            <input id="chkEpocaT" type="checkbox" name="chkEpocaT" checked="checked" onclick="javascript:setTimeout('__doPostBack(\'chkEpocaT\',\'\')', 0)"><label for="chkEpocaT">Todas</label>
+                        </div>
+                    </div>
+                    <div id="divMagistrados" style="width: 100%; display: table; float: none; margin: 10px 0px;">
+                        <div class="celdaI">
+                            <span id="lblMenuMagistrados">Magistrados</span>
+                        </div>
+                        <div class="celda">
+                            <select name="ddlMagistrados" id="ddlMagistrados" style="width:334px;">
+			<option value="Todos">Todos</option>
+			<option value="48">Armando Ismael Maitret Hernández</option>
+			<option value="94">Claudia Valle Aguilasocho</option>
+			<option value="85">Eva Barrientos Zepeda</option>
+			<option value="74">Felipe Alfredo Fuentes Barrera</option>
+			<option value="73">Felipe de la Mata Pizaña</option>
+			<option value="90">Gabriela Villafuerte Coello</option>
+			<option value="93">Gilberto de Guzmán Bátiz García</option>
+			<option value="49">Héctor Romero Bolaños</option>
+			<option value="99">Irina Graciela Cervantes Bravo</option>
+			<option value="108">Ixel Mendoza Aragón</option>
+			<option value="50">Janine Madeline Otálora Malassis</option>
+			<option value="106">José Antonio Troncoso Ávila</option>
+			<option value="88">José Luis Ceballos Daza</option>
+			<option value="91">Luis Espíndola Morales</option>
+			<option value="87">Marcela Elena Fernández Domínguez</option>
+			<option value="107">María Cecilia Guevara y Herrera</option>
+			<option value="101">Maria Dolores López Loza</option>
+			<option value="103">María Guadalupe Vázquez Orozco</option>
+			<option value="78">Mónica Aralí Soto Fregoso</option>
+			<option value="109">Nereida Berenice Ávalos Vázquez</option>
+			<option value="110">Omar Hernández Esquivel</option>
+			<option value="97">Rebeca Barrera Amador</option>
+			<option value="77">Reyes Rodríguez Mondragón</option>
+			<option value="105">Roselia Bustillo Marín</option>
+			<option value="92">Rubén Jesús Lara Patrón</option>
+			<option value="81">Sergio Arturo Guerrero Olvera</option>
+			<option value="104">Sergio Diaz Rendón</option>
+
+		</select>
+                        </div>
+                    </div>
+                    <div id="divActor" style="width: 100%; display: table; float: none; margin: 10px 0px;">
+                        <div class="celdaI">
+                            <span id="lblMenuActor">Actor</span>
+                        </div>
+                        <div class="celda">
+                            <input name="txtActor" type="text" id="txtActor" style="width:330px;">
+                        </div>
+                    </div>
+                    <div id="divSecretario" style="width: 100%; display: table; float: none; margin: 10px 0px;">
+                        <div class="celdaI">
+                            <span id="lblMenuSecretario">Secretario</span>
+                        </div>
+                        <div class="celda">
+                            <input name="txtSecretario" type="text" id="txtSecretario" style="width:330px;">
+                        </div>
+                    </div>
+                    <div id="divAnio" style="width: 100%; display: table; float: none; margin: 10px 0px;">
+                        <div class="celdaI">
+                            <span id="lblanio">Año</span>
+                        </div>
+                        <div class="celda">
+                            <select name="ddlAnio" id="ddlAnio" style="width:334px;">
+			<option value="Todos">Todos</option>
+			<option value="1997">1997</option>
+			<option value="1998">1998</option>
+			<option value="1999">1999</option>
+			<option value="2000">2000</option>
+			<option value="2001">2001</option>
+			<option value="2002">2002</option>
+			<option value="2003">2003</option>
+			<option value="2004">2004</option>
+			<option value="2005">2005</option>
+			<option value="2006">2006</option>
+			<option value="2007">2007</option>
+			<option value="2008">2008</option>
+			<option value="2009">2009</option>
+			<option value="2010">2010</option>
+			<option value="2011">2011</option>
+			<option value="2012">2012</option>
+			<option value="2013">2013</option>
+			<option value="2014">2014</option>
+			<option value="2015">2015</option>
+			<option value="2016">2016</option>
+			<option value="2017">2017</option>
+			<option value="2018">2018</option>
+			<option value="2019">2019</option>
+			<option value="2020">2020</option>
+			<option value="2021">2021</option>
+			<option value="2022">2022</option>
+			<option value="2023">2023</option>
+			<option value="2024">2024</option>
+			<option value="2025">2025</option>
+			<option value="2026">2026</option>
+
+		</select>
+                        </div>
+                    </div>
+                    <div id="div1" style="width: 100%; display: table; float: none; margin: 10px 0px;">
+                        <div class="celdaI">
+                            <span id="lblTipoJuris">Tipo de Jurisprudencia</span>
+                        </div>
+                        <div class="celda">
+                            <select name="ddlTipoJurisprudencia" id="ddlTipoJurisprudencia" style="width:334px;">
+			<option value="Todos">Todos</option>
+			<option value="Acuerdo de Competencia">Acuerdo de Competencia</option>
+			<option value="Incidente">Incidente</option>
+			<option value="Acumulados">Acumulados</option>
+
+		</select>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="divNivel1" style="width: 100%; display: table; float: none; margin: 10px 0px;">
+                        <div class="celdaI">
+                            <span id="lblNivel1">Tema</span>
+                        </div>
+                        <div class="celda">
+                            <select name="ddlNivel1" onchange="javascript:setTimeout('__doPostBack(\'ddlNivel1\',\'\')', 0)" id="ddlNivel1" style="width:334px;">
+			<option selected="selected" value="@">Todos</option>
+			<option value="1">DERECHOS ELECTORALES FUNDAMENTALES</option>
+			<option value="2">PROCESO ELECTORAL</option>
+			<option value="5">FISCALIZACIÓN</option>
+			<option value="6">FINANCIAMIENTO</option>
+			<option value="7">SUJETOS DE DERECHO ELECTORAL</option>
+			<option value="8">VOTO DE LOS MEXICANOS EN EL EXTRANJERO</option>
+			<option value="9">JUSTICIA ELECTORAL (DERECHO PROCESAL)</option>
+			<option value="10">CONFLICTOS INTRAPARTIDISTAS</option>
+			<option value="11">LABORAL</option>
+			<option value="12">OTROS</option>
+			<option value="14">01. PRINCIPIOS DE INTERPRETACIÓN ELECTORAL</option>
+			<option value="15">02. DERECHOS ELECTORALES FUNDAMENTALES</option>
+			<option value="16">03. ESTRUCTURACIÓN DE LOS ÓRGANOS ELECTORALES</option>
+			<option value="17">04. PROCESO ELECTORAL</option>
+			<option value="18">05. JUSTICIA ELECTORAL</option>
+			<option value="19">06. PARTIDOS POLÍTICOS</option>
+			<option value="20">07. FINANCIAMIENTO POLÍTICO, FISCALIZACIÓN Y RESPONSABILIDAD</option>
+			<option value="21">08. SISTEMA ELECTORAL: FÓRMULAS ELECTORALES</option>
+			<option value="22">09. MECANISMOS DE DEMOCRACIA DIRECTA</option>
+			<option value="23">10. VOTO: MODALIDADES ESPECIALES</option>
+			<option value="24">11. MECANISMOS ESPECIALES DE PARTICIPACIÓN Y REPRESENTACIÓN</option>
+			<option value="25">12. PROCESOS ELECTORALES ESPECIALES</option>
+			<option value="26">13. OTROS</option>
+			<option value="27">d</option>
+
+		</select>
+                        </div>
+                    </div>
+                    
+                    
+                    <br>
+                    <div style="width: 100%; display: table; float: none; margin: 10px 0px;">
+                        <div class="celdaI">
+                            <span id="lblMenuOrdenar">Ordenar por:</span>
+                        </div>
+                        <div class="celda">
+                            <input id="optClave" type="radio" name="Orden" value="optClave" checked="checked"><label for="optClave">Clave</label>
+                        </div>
+                        <div class="celda">
+                            <input id="optRubro" type="radio" name="Orden" value="optRubro" checked="checked"><label for="optRubro">Rubro</label>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            
+	</div>
+        
+</div>
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("RequiredFieldValidator1"), document.getElementById("CustomValidator1"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var RequiredFieldValidator1 = document.all ? document.all["RequiredFieldValidator1"] : document.getElementById("RequiredFieldValidator1");
+RequiredFieldValidator1.controltovalidate = "txtBuscar";
+RequiredFieldValidator1.errormessage = "Se requiere que se indiquen las palabras a buscar";
+RequiredFieldValidator1.display = "Dynamic";
+RequiredFieldValidator1.validationGroup = "valForma";
+RequiredFieldValidator1.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator1.initialvalue = "";
+var CustomValidator1 = document.all ? document.all["CustomValidator1"] : document.getElementById("CustomValidator1");
+CustomValidator1.controltovalidate = "txtBuscar";
+CustomValidator1.errormessage = "Se requiere indicar al menos una opción de búsqueda por cada apartado";
+CustomValidator1.display = "Dynamic";
+CustomValidator1.validationGroup = "valForma";
+CustomValidator1.evaluationfunction = "CustomValidatorEvaluateIsValid";
+CustomValidator1.clientvalidationfunction = "ValidarFormulario";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        WebForm_AutoFocus('txtBuscar');
+document.getElementById('RequiredFieldValidator1').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('RequiredFieldValidator1'));
+}
+
+document.getElementById('CustomValidator1').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('CustomValidator1'));
+}
+//]]>
+</script>
+</form>
+
+
+</body></html>

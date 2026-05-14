@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1"><title>
+
+</title>
+    
+    <script async="" src="https://www.te.gob.mx/18f5227b-e27b-445a-a53f-f845fbe69b40/stormcaster.js"></script><script src="JS/jquery-1.11.3.js" type="text/javascript"></script>
+    <script src="JS/jcrousellite.js" type="text/javascript"></script>
+    <link href="Estilos/TesisJur.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        body
+        {
+            background: #FFF;
+        }
+        
+        .tabla
+        {
+            border: 1px solid #626661;
+            width: 900px;
+            height: 800px;
+        }
+        .Jurisprudencia
+        {
+            background-color:#ADCA04;
+            color:White;
+            border-radius:8px;
+            background-image: url(Images/suprema_corte.png);
+            float:right;
+            text-align:center;
+            padding-top:20px;
+             border-width:thin;
+             border-style:solid;
+            
+        }
+        .Jurisprudencia:hover  a.Jurisprudencia, .Jurisprudencia:hover 
+        {
+            background-color:white;
+            color:#1c5e55!important;
+            border-color:#6B7D02;
+           
+            
+        }
+        .Jurisprudencia ,a.Jurisprudencia:visited,a.Jurisprudencia:link
+        {
+            color:White;
+            text-decoration:none!important;
+        }
+       
+        .carousel
+        {
+            border: 1px solid #bababa;
+            border-radius: 10px;
+            background-color: ghostwhite;
+            float: left;
+            padding-left: 10px; /* Needed for rendering without flicker */
+            position: relative;
+            visibility: hidden;
+            left: -5000px;
+       width:90%!important;
+        }
+        
+        .carousel > ul
+        {
+        }
+        .carousel > ul > li
+        {
+        }
+        .carousel > ul > li > img, .carousel > ul > li > p
+        {
+            /* mandatory */
+            vertical-align: middle; /* optional */
+            margin: 10px 10px 10px 0;
+            border-radius: 5px;
+        }
+        .carousel > ul > li > p
+        {
+            /* mandatory */
+            border: 1px solid #808080;
+            line-height: normal;
+            background-color: #1C5E55;
+            padding: 10px;
+	    color:#fff;
+        }
+        a.prev, a.next, a.go
+        {
+            display: block;
+            width: 26px;
+            height: 30px;
+            line-height: 1;
+            background-color: #333333;
+            color: ghostwhite;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 25px;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            border-radius: 8px;
+            float: left;
+        }
+        a.prev
+        {
+            margin: 20px -5px 0 0;
+            text-indent: 7px;
+        }
+        a.next
+        {
+            margin: 20px -5px 0 0;
+            text-indent: 10px;
+        }
+        a.prev:hover, a.next:hover, a.go:hover
+        {
+            background-color: #666666;
+        }
+        .rubro
+        {
+            width: 100%;
+            display: table;
+            text-align: justify;
+        }
+        
+        th
+        {
+            background-image: url(images/deg_verde.png);
+            height: 30px;
+        }
+        
+        
+        .tdpaginacion
+        {
+            background-color: #FFF;
+            font-size: 11px;
+            text-align: center;
+            height: 28px;
+            line-height: 28px;
+            background-image: url(images/deg_gris_mini.png);
+        }
+        
+        .txtMensaje
+        {
+            font-family: Arial;
+            font-size: 12px;
+            border: 1px solid #465;
+        }
+        
+        
+        .tdBlanco
+        {
+            background-color: #FFF;
+            font-size: 20px;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            filter: alpha(opacity=60) !important;
+            filter: progid:DXImageTransform.Microsoft.Alpha(opacity=60) !important;
+            -moz-opacity: .6;
+            opacity: 0.6 !important;
+        }
+        
+        .tr_odd
+        {
+            background-image: url(images/deg_verde.png);
+        }
+        
+        /*  fila color claro  */
+        .tr_even
+        {
+            background-image: url(images/deg_gris.png);
+        }
+        body
+        {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 11px;
+        }
+        
+        #fondo
+        {
+            background-image: url(images/logo.png);
+            margin-left: auto;
+            margin-right: auto;
+            width: 900px;
+            background-repeat: no-repeat;
+        }
+        
+        
+        .fechas
+        {
+            font-size: 11px;
+            font-family: 'Trebuchet MS' , Arial, sans-serif;
+            color: #666;
+            width: 96%;
+            padding: 4px;
+            font-weight: bold;
+            line-height: 14px;
+            height: 14px;
+        }
+        
+        .mGrid th
+        {
+            background-image: url(images/deg_verde.png);
+            height: 40px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        .todosSel, .todosSel:active, .todosSel:hover, .todosSel:visited
+        {
+            color: #fff;
+            text-decoration: none;
+        }
+        .todosSel:hover
+        {
+            text-decoration: underline;
+        }
+        
+        .tablaNoBG
+        {
+            background-color: transparent !important;
+            background-image: none !important;
+        }
+        
+        .tdNoBG
+        {
+            background-color: transparent !important;
+            background-image: none !important;
+        }
+    </style>
+    <script type="text/javascript" language="javascript">
+        var seleccion = false;
+        var libre = true;
+        var valores;
+        function ChecaIdentificador(cual, id, clave) {
+        }
+        function MostrarMultiple(cuales) {
+            var partes = cuales.split("|");
+            for (var i in partes)
+                window.open(partes[i]);
+        }
+        function SeleccionTodos() {
+            seleccion = !seleccion;
+            libre = false;
+            for (var i in document.getElementById('grdIUSE').getElementsByTagName('input')) {
+                var check = document.getElementById('grdIUSE').getElementsByTagName('input')[i];
+                if ((check.type == "checkbox") && (check.checked != seleccion))
+                    check.click();
+            }
+            libre = true;
+            document.getElementById('selTodos').innerHTML = (seleccion ? 'Quitar selección' : 'Seleccionar');
+        }
+        function Entrar(cual) {
+            if (libre) {
+                seleccion = true;
+                for (var i in document.getElementById('grdIUSE').getElementsByTagName('input')) {
+                    var check = document.getElementById('grdIUSE').getElementsByTagName('input')[i];
+                    if (check.type == "checkbox")
+                        seleccion = (seleccion && check.checked);
+                }
+                document.getElementById('selTodos').innerHTML = (seleccion ? 'Quitar selección' : 'Seleccionar');
+            }
+            var ids = document.getElementById('hifIds').value;
+            var partes = ids.split("$");
+            if (cual.checked) {
+                ids += (ids == '' ? '' : '$') + cual.value;
+            }
+            else {
+                ids = '';
+                for (var i in partes) {
+                    if (partes[i] != cual.value)
+                        ids += (ids == '' ? '' : '$') + partes[i];
+                }
+            }
+            document.getElementById('hifIds').value = ids;
+        }
+        $(function () {
+            $(".nonImageContent .carousel").jCarouselLite({
+                btnNext: ".nonImageContent .next",
+                btnPrev: ".nonImageContent .prev"
+            });
+        });
+        function abrir(idtema) {
+            window.open('Listado.aspx?idtema=' + idtema);
+        }
+    </script>
+<script>var __uzdbm_1 = "daefdf15-b93e-455b-b8e8-cb2517a91f96";var __uzdbm_2 = "MmU5NTU0ZjktY2g0Yi00ZmFmLTg3NDQtMWZhN2RkMDZmMWJmJDE4Ny4xNTIuMTY1LjE0OA==";var __uzdbm_3 = "7f9000daefdf15-b93e-455b-b8e8-cb2517a91f961-17787739193870-003091f065696eea00310";var __uzdbm_4 = "false";var __uzdbm_5 = "uzmx";var __uzdbm_6 = "7f90003d06c346-13cf-455c-8c80-208454dd19001-17787739193870-f49bed90678a4ddf10";var __uzdbm_7 = "te.gob.mx";</script> <script>   (function (w, d, e, u, c, g, a, b) {     w["SSJSConnectorObj"] = w["SSJSConnectorObj"] || {       ss_cid: c,       domain_info: "auto",     };     w[g] = function (i, j) {       w["SSJSConnectorObj"][i] = j;     };     a = d.createElement(e);     a.async = true;     if (       navigator.userAgent.indexOf('MSIE') !== -1 ||       navigator.appVersion.indexOf('Trident/') > -1     ) {       u = u.replace("/advanced/", "/advanced/ie/");     }     a.src = u;     b = d.getElementsByTagName(e)[0];     b.parentNode.insertBefore(a, b);   })(     window, document, "script", "https://www.te.gob.mx/18f5227b-e27b-445a-a53f-f845fbe69b40/stormcaster.js", "ch4d", "ssConf"   );   ssConf("c1", "https://www.te.gob.mx");   ssConf("c3", "c99a4269-161c-4242-a3f0-28d44fa6ce24");   ssConf("au", "te.gob.mx");   ssConf("cu", "validate.perfdrive.com, ssc"); </script></head>
+<body>
+    <form name="form1" method="post" action="./" id="form1" style="width: 1024px; margin: 0px auto;">
+<div>
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNjU5ODYzODczDxYGHgVzV29yZGUeCm9yZGVuTGlzdGELKW1URVBKRi5TSUouV2ViLklVU0VfQnVzcXVlZGEzK09yZGVuTGlzdGEsIFRFUEpGLlNJSi5XZWIsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsAB4LTW9zdHJhclNhbGELKW9URVBKRi5TSUouV2ViLklVU0VfQnVzcXVlZGEzK01vc3RyYXJTYWxhcywgVEVQSkYuU0lKLldlYiwgVmVyc2lvbj0xLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPW51bGwAFgICAQ9kFh4CBQ8PFgQeBFRleHQFB0lkaW9tYToeB1Rvb2xUaXBlZGQCDQ9kFhYCAQ8PFgQfAwUHQnVzY2FyOh8EZWRkAgcPDxYEHwMFDUxvY2FsaXphciBlbjofBGVkZAIJDxBkDxYDZgIBAgIWAwUOSnVyaXNwcnVkZW5jaWEFBVRlc2lzBQVBbWJhcxYBAgJkAgsPDxYEHwMFEkLDunNxdWVkYSBBdmFuemFkYR8EZWRkAg0PDxYEHwMFEELDunNxdWVkYSBHb29nbGUfBGVkZAIPDw8WBh4LTmF2aWdhdGVVcmwFP2h0dHA6Ly93d3cudGUuZ29iLm14L3Npc3JlbC9wYWdlcy9leHRlcm5vL3BDb25zdWx0YWdlbmVyYWwuYXNweB8DBRVTZW50ZW5jaWFzIFJlbGV2YW50ZXMfBGVkZAIRDw8WBB8EBQ9FeHBvcnRhciBhIFdvcmQfA2VkZAITDw8WBB8EBQ5FeHBvcnRhciBhIFBkZh8DZWRkAhUPDxYEHwMFCUV4cG9ydGFyOh8EZWRkAhcPFgIeBXN0eWxlBQxkaXNwbGF5Om5vbmVkAhkPDxYEHwQFEEVudmlhciB2w61hIG1haWwfA2UWAh8GBQxkaXNwbGF5Om5vbmVkAhcPDxYCHwMF4Rc8ZGl2IGNsYXNzPSdjdXN0b20tY29udGFpbmVyIG5vbkltYWdlQ29udGVudCcgc3R5bGU9J3dpZHRoOiAxMDAlO21hcmdpbjogMCBhdXRvOyc+PGEgY2xhc3M9J3ByZXYnPuKAuTwvYT48ZGl2IGNsYXNzPSdjYXJvdXNlbCcgc3R5bGU9J3dpZHRoOiA5MCUhaW1wb3J0YW50OyBvdmVyZmxvdzogaGlkZGVuOyB2aXNpYmlsaXR5OiB2aXNpYmxlOyBwb3NpdGlvbjogcmVsYXRpdmU7IHotaW5kZXg6IDI7Jz48dWwgc3R5bGU9J2xpc3Qtc3R5bGU6IG5vbmU7IGxlZnQ6IC0xMTM0cHg7IHdpZHRoOiAyOTE2cHg7IHBvc2l0aW9uOiByZWxhdGl2ZTsgei1pbmRleDogMTsgdGV4dC1hbGlnbjogY2VudGVyJz48bGkgc3R5bGU9J3dpZHRoOiAxNThweDsgb3ZlcmZsb3c6IGhpZGRlbjsgZmxvYXQ6IGNlbnRlcjsgaGVpZ2h0OiA5MHB4Jz48cCBvbmNsaWNrPSdhYnJpcigyMyk7cmV0dXJuIGZhbHNlJyBzdHlsZT0naGVpZ2h0OiA0MHB4Jz5Qcm9wYWdhbmRhICg2NSk8L3A+PC9saT48bGkgc3R5bGU9J3dpZHRoOiAxNThweDsgb3ZlcmZsb3c6IGhpZGRlbjsgZmxvYXQ6IGNlbnRlcjsgaGVpZ2h0OiA5MHB4Jz48cCBvbmNsaWNrPSdhYnJpcigxNSk7cmV0dXJuIGZhbHNlJyBzdHlsZT0naGVpZ2h0OiA0MHB4Jz5DYW5kaWRhdHVyYXMgaW5kZXBlbmRpZW50ZXMgKDMyKTwvcD48L2xpPjxsaSBzdHlsZT0nd2lkdGg6IDE1OHB4OyBvdmVyZmxvdzogaGlkZGVuOyBmbG9hdDogY2VudGVyOyBoZWlnaHQ6IDkwcHgnPjxwIG9uY2xpY2s9J2FicmlyKDIxKTtyZXR1cm4gZmFsc2UnIHN0eWxlPSdoZWlnaHQ6IDQwcHgnPlByb2NlZGltaWVudG9zIHNhbmNpb25hZG9yZXMgKDEwOCk8L3A+PC9saT48bGkgc3R5bGU9J3dpZHRoOiAxNThweDsgb3ZlcmZsb3c6IGhpZGRlbjsgZmxvYXQ6IGNlbnRlcjsgaGVpZ2h0OiA5MHB4Jz48cCBvbmNsaWNrPSdhYnJpcigyNyk7cmV0dXJuIGZhbHNlJyBzdHlsZT0naGVpZ2h0OiA0MHB4Jz5NZWRpZGFzIGNhdXRlbGFyZXMgKDMwKTwvcD48L2xpPjxsaSBzdHlsZT0nd2lkdGg6IDE1OHB4OyBvdmVyZmxvdzogaGlkZGVuOyBmbG9hdDogY2VudGVyOyBoZWlnaHQ6IDkwcHgnPjxwIG9uY2xpY2s9J2FicmlyKDI0KTtyZXR1cm4gZmFsc2UnIHN0eWxlPSdoZWlnaHQ6IDQwcHgnPlNpc3RlbWFzIG5vcm1hdGl2b3MgaW5kw61nZW5hcyAoNjkpPC9wPjwvbGk+PGxpIHN0eWxlPSd3aWR0aDogMTU4cHg7IG92ZXJmbG93OiBoaWRkZW47IGZsb2F0OiBjZW50ZXI7IGhlaWdodDogOTBweCc+PHAgb25jbGljaz0nYWJyaXIoMTgpO3JldHVybiBmYWxzZScgc3R5bGU9J2hlaWdodDogNDBweCc+R8OpbmVybyAoNTkpPC9wPjwvbGk+PGxpIHN0eWxlPSd3aWR0aDogMTU4cHg7IG92ZXJmbG93OiBoaWRkZW47IGZsb2F0OiBjZW50ZXI7IGhlaWdodDogOTBweCc+PHAgb25jbGljaz0nYWJyaXIoMzApO3JldHVybiBmYWxzZScgc3R5bGU9J2hlaWdodDogNDBweCc+U3VzdGFuY2lhY2nDs24gZGUgbG9zIG1lZGlvcyBkZSBpbXB1Z25hY2nDs24gKDQxKTwvcD48L2xpPjxsaSBzdHlsZT0nd2lkdGg6IDE1OHB4OyBvdmVyZmxvdzogaGlkZGVuOyBmbG9hdDogY2VudGVyOyBoZWlnaHQ6IDkwcHgnPjxwIG9uY2xpY2s9J2FicmlyKDE5KTtyZXR1cm4gZmFsc2UnIHN0eWxlPSdoZWlnaHQ6IDQwcHgnPkxpYmVydGFkIGRlIGV4cHJlc2nDs24gKDIxKTwvcD48L2xpPjxsaSBzdHlsZT0nd2lkdGg6IDE1OHB4OyBvdmVyZmxvdzogaGlkZGVuOyBmbG9hdDogY2VudGVyOyBoZWlnaHQ6IDkwcHgnPjxwIG9uY2xpY2s9J2FicmlyKDI1KTtyZXR1cm4gZmFsc2UnIHN0eWxlPSdoZWlnaHQ6IDQwcHgnPlRyYW5zcGFyZW5jaWEsIGFjY2VzbyBhIGxhIGluZm9ybWFjacOzbiB5IHByb3RlY2Npw7NuIGRlIGRhdG9zIHBlcnNvbmFsZXMgKDE4KTwvcD48L2xpPjxsaSBzdHlsZT0nd2lkdGg6IDE1OHB4OyBvdmVyZmxvdzogaGlkZGVuOyBmbG9hdDogY2VudGVyOyBoZWlnaHQ6IDkwcHgnPjxwIG9uY2xpY2s9J2FicmlyKDIyKTtyZXR1cm4gZmFsc2UnIHN0eWxlPSdoZWlnaHQ6IDQwcHgnPlByb2Nlc29zIGVsZWN0b3JhbGVzICgxMTMpPC9wPjwvbGk+PGxpIHN0eWxlPSd3aWR0aDogMTU4cHg7IG92ZXJmbG93OiBoaWRkZW47IGZsb2F0OiBjZW50ZXI7IGhlaWdodDogOTBweCc+PHAgb25jbGljaz0nYWJyaXIoMTYpO3JldHVybiBmYWxzZScgc3R5bGU9J2hlaWdodDogNDBweCc+Q29uc3RpdHVjaW9uYWxpZGFkLCBjb252ZW5jaW9uYWxpZGFkIHkgZGVyZWNob3MgZnVuZGFtZW50YWxlcyAoODYpPC9wPjwvbGk+PGxpIHN0eWxlPSd3aWR0aDogMTU4cHg7IG92ZXJmbG93OiBoaWRkZW47IGZsb2F0OiBjZW50ZXI7IGhlaWdodDogOTBweCc+PHAgb25jbGljaz0nYWJyaXIoMTcpO3JldHVybiBmYWxzZScgc3R5bGU9J2hlaWdodDogNDBweCc+RmluYW5jaWFtaWVudG8geSBmaXNjYWxpemFjacOzbiAoNDApPC9wPjwvbGk+PGxpIHN0eWxlPSd3aWR0aDogMTU4cHg7IG92ZXJmbG93OiBoaWRkZW47IGZsb2F0OiBjZW50ZXI7IGhlaWdodDogOTBweCc+PHAgb25jbGljaz0nYWJyaXIoMjApO3JldHVybiBmYWxzZScgc3R5bGU9J2hlaWdodDogNDBweCc+UGFydGlkb3MgcG9sw610aWNvcyB5IGNvYWxpY2lvbmVzICgxMzkpPC9wPjwvbGk+PGxpIHN0eWxlPSd3aWR0aDogMTU4cHg7IG92ZXJmbG93OiBoaWRkZW47IGZsb2F0OiBjZW50ZXI7IGhlaWdodDogOTBweCc+PHAgb25jbGljaz0nYWJyaXIoMjgpO3JldHVybiBmYWxzZScgc3R5bGU9J2hlaWdodDogNDBweCc+UHJlY2FtcGHDsWFzIHkgY2FtcGHDsWFzICg1Mik8L3A+PC9saT48bGkgc3R5bGU9J3dpZHRoOiAxNThweDsgb3ZlcmZsb3c6IGhpZGRlbjsgZmxvYXQ6IGNlbnRlcjsgaGVpZ2h0OiA5MHB4Jz48cCBvbmNsaWNrPSdhYnJpcigxNCk7cmV0dXJuIGZhbHNlJyBzdHlsZT0naGVpZ2h0OiA0MHB4Jz5BdXRvcmlkYWRlcyBhZG1pbmlzdHJhdGl2YXMgeSB0cmlidW5hbGVzIGVsZWN0b3JhbGVzIGxvY2FsZXMgKDEyOCk8L3A+PC9saT48L3VsPjwvZGl2PjxhIGNsYXNzPSduZXh0Jz7igLo8L2E+PGRpdiBjbGFzcz0nY2xlYXInPjwvZGl2PjwvZGl2PmRkAhsPDxYEHwMFBVRvZGFzHwRlZGQCHQ8PFgIfAwUIVG9kYXMgLyBkZAIfDw8WBB8DBQ1TYWxhIFN1cGVyaW9yHwRlZGQCIw8PFgQfAwUQU2FsYXMgUmVnaW9uYWxlcx8EZWRkAiUPDxYEHwMFDE9yZGVuYXIgcG9yOh8EZWRkAicPDxYEHwMFBUNsYXZlHwRlZGQCKQ8PFgIfAwUHQ2xhdmUgL2RkAisPDxYEHwMFBVJ1YnJvHwRlZGQCLQ8PFgIfAwUhVG90YWwgZGUgcmVnaXN0cm9zIGVuY29udHJhZG9zOiAwZGQCLw88KwARAgEQFgFmFgE8KwAFAQAWAh4KSGVhZGVyVGV4dAUWSnVyaXNwcnVkZW5jaWEgeSBUZXNpcxYBAgYMFCsAAGQCOQ9kFgoCAQ8PFgQfAwUeRW52aWFyIHBvciBjb3JyZW8gZWxlY3Ryw7NuaWNvHwRlZGQCAw8PFgQfAwUFUGFyYTofBGVkZAIHDw8WBB8DBQhNZW5zYWplOh8EZWRkAg0PDxYEHwMFCENhbmNlbGFyHwRlZGQCDw8PFgQfAwUGRW52aWFyHwRlZGQCOw8PFgQfAwU8VHJpYnVuYWwgRWxlY3RvcmFsIGRlbCBQb2RlciBKdWRpY2lhbCBkZSBsYSBGZWRlcmFjacOzbiAyMDExHwRlZGQYAgUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFBWJvdG9uBQdncmRJVVNFD2dkqz3uQOaqX/QCu51iYVjLEVfqre5IKJ+70mf8b2hiVhI=">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/IUSEapp/WebResource.axd?d=PupKk9aErD8m3hP2FFT7w1Q3KGNBgnB6prWiKLcAEFwFQq26OrXU-5FlQ2UpO72L-JhWIU5diQ0QFzqzY_k0wFfTsgp6ZNokp8UX9Vl0MVw1&amp;t=638941994805310136" type="text/javascript"></script>
+
+
+<script src="/IUSEapp/ScriptResource.axd?d=8J1QtLuZkN2bIAw-PC0Ve1qg-vk0lUbDEGDSVO1glPfAJ0O_3CsrhWRUsbX-vDxeXUSUBSuijLLaGrVwPT5YCRkMlj2fG4hEXcIZq84734hwH832mJQlbbEJogzpQDgVXomZcznsapljBv64tatJhQfT9egyAiJ8CNl2_nlvH0xuZNhqDspDSzPLYRciPZ1e0&amp;t=32e5dfca" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/IUSEapp/ScriptResource.axd?d=0w5N5-22ZVK0V-FCi7-fLKElOxFoMsezYQjGiuVKk4xQRnf0OB-K80tw6pxBdffhknUb-8zMudII7VvRQPtZCZ0DaBRPdMo7eKKtKuknEzjTdOsQRR1Q0UPdPq0YVpnFh195o6uYnse3E68NASf6I-7wA8Y-dhkVBH9C2PbxJRk3Vu7mv24PldoyXI3jShmo0&amp;t=32e5dfca" type="text/javascript"></script>
+<script src="/IUSEapp/ScriptResource.axd?d=UWvJ8aV_eS9lRpXjSHjmrzesrMTx9YREQChBgZGec-X0iHo7SKAKQDu9E-nzulGZybpBVLqOCQ7K6vpX5b70QnXXHlujoM4LvlFOZuxiRCT6--bk-7nA_xcLS36IM1vSiqY1urO3Suo7ulcEbE6PG9mddxvTbQNLYdKI7F6rQ_Q1&amp;t=ffffffff9a236ee0" type="text/javascript"></script>
+<script src="/IUSEapp/ScriptResource.axd?d=cc1fBN5yevnEHBnBP5nmJfX1ysCV_vGrawIAypW2RH5YTQ8H8XmGXNs4SAS5-dWdMl0uuTceIxNQsfF_IR74zLYLtcgDxu3HSroS6bTNiQUU8lWd_yGI8-4uEJYbWl5W0vygGptOUOGqunrJ-QBPj96nUD3g9d4mq4tmPXxYH_w1&amp;t=ffffffff9a236ee0" type="text/javascript"></script>
+<script src="/IUSEapp/ScriptResource.axd?d=v2JoXOcE4CaTW5jOzGRPirU0c-HfR3kR0vSLM-xTSiCx2J57vxMHzevVhGmP5RzUJnHYACXmMAW6DC4VTI9oogIqAy2uMyao7JkqBxkPqpKvonwkz8_Hfc2ErWn344pqnCUXuCNVL_cUeVPDCno6c4LBKJPFA8K5fWDcWcegKjnaq-uiDI5U-7kOW_5oy7FS0&amp;t=ffffffff9a236ee0" type="text/javascript"></script>
+<script src="/IUSEapp/ScriptResource.axd?d=tOy1FP5oPp1Dhn46uM6LRn3y9M_jSSwU5xlxaZH03e2mZayrDb1YMBGxWOyirLOQgkzyJTnDH2CQAAvZCPz3D3xOpRlVsqDjvfG2ZhGKMpoNpFr6_pgzjtB2BGCTQj96NQM0MkAb_BIl8dMfXFaAGFOiXtDgT5bm-lMyDVeI7N81&amp;t=ffffffff9a236ee0" type="text/javascript"></script>
+<script src="/IUSEapp/ScriptResource.axd?d=vg1JeMMz6a0rf1GXv_CbLtAZBnPm9e7yaC3iaTvsKvg3ZSiwJTqSicCTDgncka5Sf4jdSeao3_H04ZLWxuHD1_8Hp_fAJZ6lXtfGoPLemdbjKEY5di1tJJRWaP9bbBsJyF98y8bU0IEbUzCcpy2pV7XRQbxvbVAlIqKzveF8645ZWrlG-y-6-J2fNTfnQLKM0&amp;t=ffffffff9a236ee0" type="text/javascript"></script>
+<script src="/IUSEapp/ScriptResource.axd?d=WfgXoSBQyEcoTzqG_WoNAn67qDemuIliDfRq0VRWC-ZtE45R4m7x2GVvMJQGrOUtgfvB4Ijptj9jc0z7dtjng10bIumwo6tmNE3N6441_SThQPa-vFfCClh6O9VDe0AZ-5l-1mS_vEMt3Y98DpPnkFFzd5-_qeEc73yNND-bUlVBWTmSrUjBpIGv7kgEgUaH0&amp;t=ffffffff9a236ee0" type="text/javascript"></script>
+<script src="/IUSEapp/ScriptResource.axd?d=MqWLV1zEsE3u9HXuZHOfo6ZR1BqmEhrCdZOEz1MKWubGTvEYFNHNJ8_W7UQQumwG2cB4igwATPj-x8cojn1B8ccdnHpMmosNKnLiXgLk8Qdg3eOkEOvNQBQTX1k4Ux9B0yubOZj_ZZbX3yF9Cc504EzXs3_xMAbaWZ5U4oVa7pUIaf30nxL2lnAnr-SD5jRF0&amp;t=ffffffff9a236ee0" type="text/javascript"></script>
+<script src="/IUSEapp/ScriptResource.axd?d=lL8Jc13mMLWgoOmvwdy4v_mm5GD9opZpJbek5lcsjEw6q3nBOTqvzMdpApqshrnkU_uxSrqx3qF_jFUkgSgwbdmDvrlWUEmrdiY-keRfc7KsXI6XBlvNE2VmLdDXaAAZk1bIx9hsaCmW1ZjING9jAjybFKLm1c-gzlc1gY-wzE01&amp;t=ffffffff9a236ee0" type="text/javascript"></script>
+<script src="/IUSEapp/ScriptResource.axd?d=CDmVwhxQnv0jBLbNe8YvKHBkjqmpJ-YZAiNl_HCIF1lYj1jk_Z3sEh6o41aRJT8S8aF59yfWl6_h09n8ms9PO396P80QZwYzp3woudSogSHdmh5Mv6bfpOfVKSpOQQn0KeoAWwuyZs8cEkXZc1HLUglG8KY7WhOcYfxQw_5v9uNq2dnolm9Bj8u7bG2UNBnT0&amp;t=ffffffff9a236ee0" type="text/javascript"></script>
+<script src="/IUSEapp/WebResource.axd?d=GwUZuVFc68VPQu1IFmAjRu8buSQvNEMIXnIjLfUQ8ec8mC_hUJ5R-6N0Vdy8RhQchOKaXcopp5S9AdqoeD5aXsEULLyf-y2kbRHQmskoKJY1&amp;t=638941994805310136" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="23448259">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdABrBu0/lSg5O+Zl2aQENknzADwu8icvPhwiGfMOqC2Ieaq7ad8Q7AL0pZvZlvE+M6yxbn2Vn965+ZASij070VhNIxzhc27bOHlrOTw7dgTYEO/Of5nRcw4/WkiPhfqBxcJRQQTIMcAAX/KpoZO2+djm2X7O7Y00fzG9lnyS8wNiKwKmupgjz/Z5emJ+0yrPWnZCMOBiZZfzISAzD3qZQ+EYPwIEtf58KjIkX4Xa2RR6r3nRk2V8Yc+NchBCOOfB2VfQ/rS5CRmoiuxnLt0QwPmPlWCkXGx3QhleUjyhFPrpLQ+yH1ej46CIuSOfA61Tp8SIvMHpAPEdVyHQCSqkdRA06tTfNpOz0CH4vKngBfzxDIfITmjqJRc0wJyQ3TX3rwQHEWsSi8K6tQruLXP/LGpq824lBMHN8zTLcC0RqEvzGZBMMFNVzneJcxbztNNOmndA7YwzaiX7s+PWWyHXLx5qFeWcRY1KYZwPJqC74M9h0UC0UY6ggvh/ez2H8gdZowX6C75t0JCKPME4l5qarCiRSFQ7q8BTS7hj7kTvpI8K3SQGUkFL5pY07iKnqxouAmZ5xXj7zCb0nezl+uLNVvgsV">
+</div>
+    <div align="center">
+        <img src="images/IUS_encabezado2.jpg">
+    </div>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('scrBusqueda', 'form1', [], [], [], 90, '');
+//]]>
+</script>
+
+            <input type="hidden" name="hifIds" id="hifIds">
+            <div style="width: 100%;">
+                <div style="float: right">
+                    <table>
+                        <tbody><tr>
+                            <td>
+                                &nbsp;&nbsp;
+                            </td>
+                            <td>
+                                <div>
+                                    <span id="lblIdioma">Idioma:</span></div>
+                            </td>
+                            <td>
+                                <a id="es" title="Español" href="Default.aspx?culture=es"><img title="Español" src="Images/es.png" alt="" style="border-width:0px;"></a>
+                            </td>
+                            <td>
+                                <a id="en" title="Inglés" href="Default.aspx?culture=en"><img title="Inglés" src="Images/eu.png" alt="" style="border-width:0px;"></a>
+                            </td>
+                            <td>
+                                <a id="fr" title="Francés" href="Default.aspx?culture=fr"><img title="Francés" src="Images/fr.gif" alt="" style="border-width:0px;"></a>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </div>
+            <div style="clear: both">
+            </div>
+            <div style="width: 100%; height: 100%; background-color: White; padding: 0;">
+                <div id="pnlBotonesTop" class="toolbar" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'boton')">
+	
+                    <table style="width: 100%">
+                        <tbody><tr>
+                            <td>
+                                <div style="float: left; width: 100%">
+                                    <div style="margin-top: 2px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;
+                                        float: none;">
+                                        <table cellpadding="0px" cellspacing="0px">
+                                            <tbody><tr>
+                                                <td>
+                                                    <span id="lblMenuBuscar">Buscar:</span>
+                                                    <input name="txtBuscar" type="text" id="txtBuscar" class="buscar">
+                                                </td>
+                                                <td>
+                                                    <input type="image" name="boton" id="boton" title="Buscar" class="btnBuscar" src="Images/blanco.png" style="border-width:0px;">
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </div>
+                                       <div style="float: none; font-size: 10px; width: 100%; margin-top: 0px">
+                                        <table width="100%" border="0" style="margin-top: 0">
+                                            <tbody><tr>
+                                                <td style="font-size: 12px">
+                                                    <span id="lblMenuLocalizar">Localizar en:</span>
+                                                </td>
+                                                <td valign="middle" style="font-size: 12px" nowrap="">
+                                                    <span id="chbTipoBusqueda" class="opciones"><input id="chbTipoBusqueda_0" type="radio" name="chbTipoBusqueda" value="J" onclick="javascript:setTimeout('__doPostBack(\'chbTipoBusqueda$0\',\'\')', 0)"><label for="chbTipoBusqueda_0">Jurisprudencia</label><input id="chbTipoBusqueda_1" type="radio" name="chbTipoBusqueda" value="T" onclick="javascript:setTimeout('__doPostBack(\'chbTipoBusqueda$1\',\'\')', 0)"><label for="chbTipoBusqueda_1">Tesis</label><input id="chbTipoBusqueda_2" type="radio" name="chbTipoBusqueda" value="0" checked="checked"><label for="chbTipoBusqueda_2">Ambas</label></span>
+                                                </td>
+                                                <td align="center" nowrap="">
+                                                    <a id="lnkBusquedaAvanzada" class="busquedaAvanzada" href="javascript:__doPostBack('lnkBusquedaAvanzada','')">Búsqueda Avanzada</a>
+                                                </td>
+                                                <td align="center" nowrap="">
+                                                    <a id="hlBusquedaGoogle" class="busquedaGoogle" href="http://portal.te.gob.mx/legislacion-jurisprudencia/jurisprudencia-y-tesis" target="_blank">Búsqueda Google</a>
+                                                </td>
+                                                <td align="center" nowrap="">
+                                                    <a id="hlSISREL" class="busquedaAvanzada" href="http://www.te.gob.mx/sisrel/pages/externo/pConsultageneral.aspx" target="_blank" style="display:inline-block;text-decoration:underline;width:50%;">Sentencias Relevantes</a>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="tbDer">
+                                <a id="lnkCrearDoc" title="Exportar a Word" class="btnExportarWord" href="javascript:__doPostBack('lnkCrearDoc','')"></a>
+                                <a id="lnkCrearPdf" title="Exportar a Pdf" class="btnExportarPdf" href="javascript:__doPostBack('lnkCrearPdf','')"></a>
+                                <div style="padding-top: 8px;">
+                                    <span id="lblMenuExportar">Exportar:</span>
+                                </div>
+                                <div id="divMailRemove" class="separador" style="display:none">
+                                </div>
+                                <a id="lnkEnviarMail" title="Enviar vía mail" class="btnMandarMail" href="javascript:__doPostBack('lnkEnviarMail','')" style="display:none"></a>
+                                <a id="lnkEnviarMailExterno" title="Enviar vía mail" class="btnMandarMail" href="javascript:__doPostBack('lnkEnviarMailExterno','')"></a>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                    <br>
+                     <br>
+                      <br>
+                
+</div>
+            </div>
+            <div style="text-align:right;margin-right:17px;">
+				<div style="text-align:right;margin-right:17px;display:inline">
+                    <a id="HyperLink5" title="Gaceta Jurisprudencia y Tesis en materia electoral" href="https://www.te.gob.mx/publicaciones/sites/default/files//archivos_libros/Gaceta%2027y17.pdf" target="_blank" style=" padding-left:10px;"><img src="Images/Gaceta.jpg" style="border-color:Gray;width:15%;border-width:0px;"></a>
+                </div>
+				<div style="text-align:right;margin-right:17px;display:inline">
+                    <a id="HyperLink4" title="Memorias sobre jurisprudencia electora. Criterios emitidos por la Sala Superior del TEPJF. Noviembre 2016-diciembre 2021" href="https://www.te.gob.mx/publicaciones/capitulos/2113" target="_blank" style=" padding-left:10px;"><img src="Images/image005.png" style="border-color:Gray;width:16%;border-width:0px;"></a>
+                </div>
+                <div style="text-align:right;margin-right:17px;display:inline">
+                    <a id="HyperLink2" title="Acuerdo General 3/2021" href="https://www.te.gob.mx/RepositorioJurisprudencia/Acuerdo%203-2021_TEPJF.pdf" target="_blank" style=" padding-left:10px;"><img src="Images/Acuerdo3.png" style="border-color:Gray;width:20%;border-width:0px;"></a>
+                </div>
+                <div style="text-align:right;margin-right:17px;display:inline">
+                    <a id="HyperLink3" title="Acuerdo General 4/2021" href="https://www.te.gob.mx/RepositorioJurisprudencia/Acuerdo%204-2021_TEPJF.pdf" target="_blank" style=" padding-left:10px;"><img src="Images/Acuerdo4.png" style="border-color:Gray;width:20%;border-width:0px;"></a>
+                </div>
+            </div>
+
+            <span id="lblCarrusel" style="display:inline-block;width:85%;"><div class="custom-container nonImageContent" style="width: 100%;margin: 0 auto;"><a class="prev">‹</a><div class="carousel" style="overflow: hidden; visibility: visible; position: relative; z-index: 2; width: 948px; left: 0px;"><ul style="list-style: none; left: -1580px; width: 4266px; position: relative; z-index: 1; text-align: center; margin: 0px; padding: 0px;"><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(22);return false" style="height: 40px">Procesos electorales (113)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(16);return false" style="height: 40px">Constitucionalidad, convencionalidad y derechos fundamentales (86)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(17);return false" style="height: 40px">Financiamiento y fiscalización (40)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(20);return false" style="height: 40px">Partidos políticos y coaliciones (139)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(28);return false" style="height: 40px">Precampañas y campañas (52)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(14);return false" style="height: 40px">Autoridades administrativas y tribunales electorales locales (128)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(23);return false" style="height: 40px">Propaganda (65)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(15);return false" style="height: 40px">Candidaturas independientes (32)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(21);return false" style="height: 40px">Procedimientos sancionadores (108)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(27);return false" style="height: 40px">Medidas cautelares (30)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(24);return false" style="height: 40px">Sistemas normativos indígenas (69)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(18);return false" style="height: 40px">Género (59)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(30);return false" style="height: 40px">Sustanciación de los medios de impugnación (41)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(19);return false" style="height: 40px">Libertad de expresión (21)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(25);return false" style="height: 40px">Transparencia, acceso a la información y protección de datos personales (18)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(22);return false" style="height: 40px">Procesos electorales (113)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(16);return false" style="height: 40px">Constitucionalidad, convencionalidad y derechos fundamentales (86)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(17);return false" style="height: 40px">Financiamiento y fiscalización (40)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(20);return false" style="height: 40px">Partidos políticos y coaliciones (139)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(28);return false" style="height: 40px">Precampañas y campañas (52)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(14);return false" style="height: 40px">Autoridades administrativas y tribunales electorales locales (128)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(23);return false" style="height: 40px">Propaganda (65)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(15);return false" style="height: 40px">Candidaturas independientes (32)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(21);return false" style="height: 40px">Procedimientos sancionadores (108)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(27);return false" style="height: 40px">Medidas cautelares (30)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(24);return false" style="height: 40px">Sistemas normativos indígenas (69)</p></li><li style="width: 158px; overflow: hidden; height: 90px; float: left;"><p onclick="abrir(18);return false" style="height: 40px">Género (59)</p></li></ul></div><a class="next">›</a><div class="clear"></div></div></span>
+                 <a id="HyperLink1" href="JurisElectoral.aspx" style=" padding-left:10px;"><img src="Images/1.png" style="border-color:Gray;width:12%;border-width:0px;"></a>
+       
+             <div style="margin-bottom: 10px; width: 100%; height: 20px; float: none; display: block;">
+                <div style="float: right; margin-left: 20px;">
+                    En:
+                    
+                    <span id="lblRelleno1">Todas / </span>
+                    <a id="lnkSuperior" class="orden" href="javascript:__doPostBack('lnkSuperior','')">Sala Superior</a>
+                    <span id="lblRelleno2"> / </span>
+                    <a id="lnkRegionales" class="orden" href="javascript:__doPostBack('lnkRegionales','')">Salas Regionales</a>
+                </div>
+                <div style="float: right; margin-left: 20px;">
+                    <span id="lblMenuOrdenar">Ordenar por:</span>
+                    
+                    <span id="lblRelleno">Clave /</span>
+                    <a id="lnkRubro" class="orden" href="javascript:__doPostBack('lnkRubro','')">Rubro</a>
+                </div>
+                <div style="float: right">
+                    <span id="lblTotal">Total de registros encontrados: 0</span>
+                </div>
+            </div>
+            <div>
+
+</div>
+            
+    <div id="pnlNoVigente" class="mensaje" style="display: none; position: fixed; z-index: 100001;">
+	
+        <h2>
+            <span id="Label3">No vigente</span></h2>
+       
+        <span>
+            <span id="Label5">Motivo:</span>
+            <span id="txtNiVigenteMotivo" disabled="disabled" class="txtMensaje" style="display:inline-block;height:120px;width:380px;"></span>
+
+        </span>
+        
+       
+        <div>
+            <a id="LinkButton1" href="javascript:__doPostBack('LinkButton1','')">Cerrar</a>
+            <a id="lnkNoVigente" href="javascript:__doPostBack('lnkNoVigente','')">Ver No Vigente</a>
+        </div>
+    
+</div>
+
+    <input type="hidden" name="hifTarget" id="hifTarget">
+    
+    <div id="pnlEnviarArchivo" class="mensaje" style="display: none; position: fixed; z-index: 100001;">
+	
+        <h2>
+            <span id="lblMenuCorreoEncabezado">Enviar por correo electrónico</span></h2>
+        <div style="margin-bottom: 0">
+            <table>
+                <tbody><tr>
+                    <td>
+                        <span id="lblMenuCorreoPara">Para:</span>
+                    </td>
+                    <td>
+                        <input name="txtPara" type="text" id="txtPara" class="txtMensaje" style="width:300px;">
+                    </td>
+                </tr>
+            </tbody></table>
+        </div>
+        <span>
+            <span id="lblMenuCorreoMess">Mensaje:</span>
+            <textarea name="txtMensaje" rows="2" cols="20" id="txtMensaje" class="txtMensaje" style="width:400px;"></textarea></span>
+        <span>Enviar en formato: </span>
+        <span id="rbtFormato"><input id="rbtFormato_0" type="radio" name="rbtFormato" value="p" checked="checked"><label for="rbtFormato_0">Pdf</label><input id="rbtFormato_1" type="radio" name="rbtFormato" value="w"><label for="rbtFormato_1">Word</label></span>
+        <div>
+            <a id="lnkCancelaMail" href="javascript:__doPostBack('lnkCancelaMail','')">Cancelar</a>
+            <a id="lnkEnviaMail" href="javascript:__doPostBack('lnkEnviaMail','')">Enviar</a>
+        </div>
+    
+</div>
+    <div align="right">
+        <span id="lblTE" style="font-family:Arial;font-size:8pt;">Tribunal Electoral del Poder Judicial de la Federación 2011</span>
+    </div>
+    <br>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+WebForm_AutoFocus('txtBuscar');Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.ModalPopupBehavior, {"BackgroundCssClass":"backMensajeGris","PopupControlID":"pnlNoVigente","dynamicServicePath":"/IUSEapp/default.aspx","id":"mpeNoVigente"}, null, null, $get("hifTarget"));
+});
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.ModalPopupBehavior, {"BackgroundCssClass":"backMensaje","PopupControlID":"pnlEnviarArchivo","dynamicServicePath":"/IUSEapp/default.aspx","id":"mpeCorreo"}, null, null, $get("hifTarget"));
+});
+//]]>
+</script>
+<div id="mpeNoVigente_backgroundElement" class="backMensajeGris" style="display: none; position: fixed; left: 0px; top: 0px; z-index: 10000;"></div><div id="mpeCorreo_backgroundElement" class="backMensaje" style="display: none; position: fixed; left: 0px; top: 0px; z-index: 10000;"></div></form>
+    <script language="javascript" type="text/javascript">
+       valores = document.getElementById('hifIds');
+
+        function limpiar() {
+            $("#txtPara").val("");
+            $("#txtMensaje").val("");
+        }
+    </script>
+
+
+</body></html>

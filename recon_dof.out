@@ -1,0 +1,248 @@
+--- https://www.dof.gob.mx/ ---
+  form action: https://dof.gob.mx/index.php
+  form action: busqueda_detalle.php
+  form action: /encuestas_votar.php
+  link: /nota_detalle.php?codigo=5787425&amp;fecha=14/05/1926
+  link: /nota_detalle.php?codigo=5787417&amp;fecha=14/05/1926
+  link: /nota_detalle.php?codigo=5787418&amp;fecha=14/05/1926
+  link: /nota_detalle.php?codigo=5787448&amp;fecha=14/05/1926
+  link: /nota_detalle.php?codigo=5787430&amp;fecha=14/05/1926
+  link: /nota_detalle.php?codigo=5786937&amp;fecha=08/05/1926
+  link: /nota_detalle.php?codigo=5786739&amp;fecha=07/05/1926
+  link: /nota_detalle.php?codigo=5786766&amp;fecha=07/05/1926
+  link: /nota_detalle.php?codigo=5786923&amp;fecha=08/05/1926
+  link: /nota_detalle.php?codigo=5786977&amp;fecha=08/05/1926
+  link: /nota_detalle.php?codigo=5786932&amp;fecha=08/05/1926
+  link: /nota_detalle.php?codigo=5787017&amp;fecha=11/05/1926
+  link: /nota_detalle.php?codigo=5786930&amp;fecha=08/05/1926
+  link: /nota_detalle.php?codigo=5786748&amp;fecha=07/05/1926
+  link: /nota_detalle.php?codigo=5785593&amp;fecha=22/04/1926
+  link: /nota_detalle.php?codigo=5786537&amp;fecha=01/05/1926
+  link: /nota_detalle.php?codigo=5785257&amp;fecha=17/04/1926
+  link: /nota_detalle.php?codigo=5785818&amp;fecha=23/04/1926
+  link: /nota_detalle.php?codigo=5785263&amp;fecha=17/04/1926
+  link: /nota_detalle.php?codigo=5786600&amp;fecha=04/05/1926
+  link: /nota_detalle.php?codigo=5785577&amp;fecha=21/04/1926
+  link: /nota_detalle.php?codigo=5786598&amp;fecha=04/05/1926
+  link: /nota_detalle.php?codigo=5785817&amp;fecha=23/04/1926
+  link: nota_to_imagen_fs.php?cod_diario=327305&amp;pagina=0&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?cod_diario=327305&amp;pagina=-1&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787416
+  link: nota_to_imagen_fs.php?codnota=5787417&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787417&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787418&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787418&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787419
+  link: nota_to_imagen_fs.php?codnota=5787420&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787420&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787421&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787421&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787422&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787422&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787423&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787423&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787424
+  link: nota_to_imagen_fs.php?codnota=5787425&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787425&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787426&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787426&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787427&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787427&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787428&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787428&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787429
+  link: nota_to_imagen_fs.php?codnota=5787430&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787430&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787431
+  link: nota_to_imagen_fs.php?codnota=5787432&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787432&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787433&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787433&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787434&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787434&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787435
+  link: nota_to_imagen_fs.php?codnota=5787436&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787436&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787437
+  link: nota_to_imagen_fs.php?codnota=5787438&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787438&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787439
+  link: nota_to_imagen_fs.php?codnota=5787440&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787440&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787441&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787441&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787442
+  link: nota_to_imagen_fs.php?codnota=5787443&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787443&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787444
+  link: nota_to_imagen_fs.php?codnota=5787445&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787445&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787447
+  link: nota_to_imagen_fs.php?codnota=5787448&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787448&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787449&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787449&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787450&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787450&amp;fecha=14/05/2026
+  link: index.php?vertopnotas=1
+  link: /ejemplaresDisponibles.php?info=completa
+  link: /ejemplaresDisponibles.php?inicio=si
+--- https://www.dof.gob.mx/index_111.php?year=2024&month=01&day=10 ---
+  form action: https://dof.gob.mx/index.php
+  form action: busqueda_detalle.php
+  form action: /encuestas_votar.php
+  link: nota_to_imagen_fs.php?cod_diario=310841&amp;pagina=0&amp;fecha=10/01/2024
+  link: nota_to_imagen_fs.php?cod_diario=310841&amp;pagina=-1&amp;fecha=10/01/2024
+  link: /nota_to_doc.php?codnota=5714064
+  link: nota_to_imagen_fs.php?codnota=5714065&amp;fecha=10/01/2024&amp;cod_diario=310841
+  link: /nota_detalle.php?codigo=5714065&amp;fecha=10/01/2024
+  link: nota_to_imagen_fs.php?codnota=5714066&amp;fecha=10/01/2024&amp;cod_diario=310841
+  link: /nota_detalle.php?codigo=5714066&amp;fecha=10/01/2024
+  link: /nota_to_doc.php?codnota=5714067
+  link: nota_to_imagen_fs.php?codnota=5714068&amp;fecha=10/01/2024&amp;cod_diario=310841
+  link: /nota_detalle.php?codigo=5714068&amp;fecha=10/01/2024
+  link: /nota_to_doc.php?codnota=5714069
+  link: nota_to_imagen_fs.php?codnota=5714070&amp;fecha=10/01/2024&amp;cod_diario=310841
+  link: /nota_detalle.php?codigo=5714070&amp;fecha=10/01/2024
+  link: /nota_to_doc.php?codnota=5714071
+  link: nota_to_imagen_fs.php?codnota=5714072&amp;fecha=10/01/2024&amp;cod_diario=310841
+  link: /nota_detalle.php?codigo=5714072&amp;fecha=10/01/2024
+  link: /nota_to_doc.php?codnota=5714073
+  link: nota_to_imagen_fs.php?codnota=5714074&amp;fecha=10/01/2024&amp;cod_diario=310841
+  link: /nota_detalle.php?codigo=5714074&amp;fecha=10/01/2024
+  link: /nota_to_doc.php?codnota=5714075
+  link: nota_to_imagen_fs.php?codnota=5714076&amp;fecha=10/01/2024&amp;cod_diario=310841
+  link: /nota_detalle.php?codigo=5714076&amp;fecha=10/01/2024
+  link: nota_to_imagen_fs.php?codnota=5714077&amp;fecha=10/01/2024&amp;cod_diario=310841
+  link: /nota_detalle.php?codigo=5714077&amp;fecha=10/01/2024
+  link: nota_to_imagen_fs.php?codnota=5714078&amp;fecha=10/01/2024&amp;cod_diario=310841
+  link: /nota_detalle.php?codigo=5714078&amp;fecha=10/01/2024
+  link: nota_to_imagen_fs.php?codnota=5714079&amp;fecha=10/01/2024&amp;cod_diario=310841
+  link: /nota_detalle.php?codigo=5714079&amp;fecha=10/01/2024
+  link: /nota_to_doc.php?codnota=5714080
+  link: nota_to_imagen_fs.php?codnota=5714081&amp;fecha=10/01/2024&amp;cod_diario=310841
+  link: /nota_detalle.php?codigo=5714081&amp;fecha=10/01/2024
+  link: /nota_to_doc.php?codnota=5714083
+  link: nota_to_imagen_fs.php?codnota=5714084&amp;fecha=10/01/2024&amp;cod_diario=310841
+  link: /nota_detalle.php?codigo=5714084&amp;fecha=10/01/2024
+  link: nota_to_imagen_fs.php?codnota=5714085&amp;fecha=10/01/2024&amp;cod_diario=310841
+  link: /nota_detalle.php?codigo=5714085&amp;fecha=10/01/2024
+  link: index.php?vertopnotas=1
+  link: /ejemplaresDisponibles.php?info=completa
+  link: /ejemplaresDisponibles.php?inicio=si
+--- https://dof.gob.mx/busqueda_avanzada.php ---
+  goto: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://dof.gob.mx/busqueda_avanzada.php", waiting until "networkidle"
+
+--- https://www.dof.gob.mx/index.php ---
+  form action: https://dof.gob.mx/index.php
+  form action: busqueda_detalle.php
+  form action: /encuestas_votar.php
+  link: /nota_detalle.php?codigo=5787425&amp;fecha=14/05/1926
+  link: /nota_detalle.php?codigo=5787417&amp;fecha=14/05/1926
+  link: /nota_detalle.php?codigo=5787418&amp;fecha=14/05/1926
+  link: /nota_detalle.php?codigo=5787448&amp;fecha=14/05/1926
+  link: /nota_detalle.php?codigo=5787430&amp;fecha=14/05/1926
+  link: /nota_detalle.php?codigo=5786937&amp;fecha=08/05/1926
+  link: /nota_detalle.php?codigo=5786739&amp;fecha=07/05/1926
+  link: /nota_detalle.php?codigo=5786766&amp;fecha=07/05/1926
+  link: /nota_detalle.php?codigo=5786923&amp;fecha=08/05/1926
+  link: /nota_detalle.php?codigo=5786977&amp;fecha=08/05/1926
+  link: /nota_detalle.php?codigo=5786932&amp;fecha=08/05/1926
+  link: /nota_detalle.php?codigo=5787017&amp;fecha=11/05/1926
+  link: /nota_detalle.php?codigo=5786930&amp;fecha=08/05/1926
+  link: /nota_detalle.php?codigo=5786748&amp;fecha=07/05/1926
+  link: /nota_detalle.php?codigo=5785593&amp;fecha=22/04/1926
+  link: /nota_detalle.php?codigo=5786537&amp;fecha=01/05/1926
+  link: /nota_detalle.php?codigo=5785257&amp;fecha=17/04/1926
+  link: /nota_detalle.php?codigo=5785818&amp;fecha=23/04/1926
+  link: /nota_detalle.php?codigo=5785263&amp;fecha=17/04/1926
+  link: /nota_detalle.php?codigo=5786600&amp;fecha=04/05/1926
+  link: /nota_detalle.php?codigo=5785577&amp;fecha=21/04/1926
+  link: /nota_detalle.php?codigo=5786598&amp;fecha=04/05/1926
+  link: /nota_detalle.php?codigo=5785817&amp;fecha=23/04/1926
+  link: nota_to_imagen_fs.php?cod_diario=327305&amp;pagina=0&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?cod_diario=327305&amp;pagina=-1&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787416
+  link: nota_to_imagen_fs.php?codnota=5787417&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787417&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787418&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787418&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787419
+  link: nota_to_imagen_fs.php?codnota=5787420&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787420&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787421&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787421&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787422&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787422&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787423&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787423&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787424
+  link: nota_to_imagen_fs.php?codnota=5787425&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787425&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787426&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787426&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787427&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787427&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787428&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787428&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787429
+  link: nota_to_imagen_fs.php?codnota=5787430&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787430&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787431
+  link: nota_to_imagen_fs.php?codnota=5787432&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787432&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787433&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787433&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787434&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787434&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787435
+  link: nota_to_imagen_fs.php?codnota=5787436&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787436&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787437
+  link: nota_to_imagen_fs.php?codnota=5787438&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787438&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787439
+  link: nota_to_imagen_fs.php?codnota=5787440&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787440&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787441&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787441&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787442
+  link: nota_to_imagen_fs.php?codnota=5787443&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787443&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787444
+  link: nota_to_imagen_fs.php?codnota=5787445&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787445&amp;fecha=14/05/2026
+  link: /nota_to_doc.php?codnota=5787447
+  link: nota_to_imagen_fs.php?codnota=5787448&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787448&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787449&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787449&amp;fecha=14/05/2026
+  link: nota_to_imagen_fs.php?codnota=5787450&amp;fecha=14/05/2026&amp;cod_diario=327305
+  link: /nota_detalle.php?codigo=5787450&amp;fecha=14/05/2026
+  link: index.php?vertopnotas=1
+  link: /ejemplaresDisponibles.php?info=completa
+  link: /ejemplaresDisponibles.php?inicio=si
+
+=== 97 reqs / 63 unique ===
+    8  POST https://www.google-analytics.com/g/collect
+    4  POST https://analytics.google.com/g/collect
+    3  GET https://www.dof.gob.mx/js/calendar.js
+    3  GET https://www.dof.gob.mx/js/jkmegamenu.js
+    3  GET https://www.dof.gob.mx/js/datepicker/js/datepicker.js
+    3  GET https://www.dof.gob.mx/js/datepicker/js/eye.js
+    3  GET https://www.dof.gob.mx/js/jquery.js
+    3  GET https://www.dof.gob.mx/js/datepicker/js/utils.js
+    3  GET https://www.dof.gob.mx/js/submenutramite.js
+    3  GET https://www.dof.gob.mx/js/facebox/facebox.js
+    3  GET https://www.dof.gob.mx/js/prototype.js
+    3  GET https://www.dof.gob.mx/logical/calendar.js
+    3  GET https://www.dof.gob.mx/blank.htm
+    2  GET https://www.dof.gob.mx/js/SpryTabbedPanels.js
+    2  GET https://sidof.segob.gob.mx/busqueda/buscadorGoogle
+    1  GET https://www.dof.gob.mx/
+    1  GET https://www.dof.gob.mx/index_111.php
+    1  GET https://www.googletagmanager.com/td
+    1  GET https://dof.gob.mx/busqueda_avanzada.php
+    1  GET https://sidof.segob.gob.mx/busquedaAvanzada/busqueda
