@@ -28,6 +28,11 @@ H = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) Chrome/131.0"}
 STATE_PAGES = {
     "QROO": "https://www.congresoqroo.gob.mx/leyes/",
     "YUC":  "https://congresoyucatan.gob.mx/legislacion/leyes",
+    "CDMX": "https://www.congresocdmx.gob.mx/leyes/",
+    "DGO":  "https://www.congresodurango.gob.mx/legislacion/",  # has 190 PDFs (more than /leyes/)
+    "GTO":  "https://www.congresogto.gob.mx/leyes/",
+    "TAB":  "https://www.congresotabasco.gob.mx/leyes/",
+    "VER":  "https://www.legisver.gob.mx/leyes/",
 }
 
 
