@@ -393,6 +393,179 @@ def export_dip_leyes(conn: sqlite3.Connection, src_db: str = "dip_leyes.db"):
 
 # ---------- main ---------------------------------------------------------------
 
+# ---------- source: ejecutorias (ejecutorias.db) --------------------------------
+
+def export_ejecutorias(conn: sqlite3.Connection, src_db: str = "ejecutorias.db"):
+    src = sqlite3.connect(src_db)
+    src.row_factory = sqlite3.Row
+    n = src.execute("SELECT COUNT(*) FROM ejecutorias WHERE status='ok'").fetchone()[0]
+    print(f"ejecutorias: {n} rows")
+    for r in src.execute("""
+        SELECT registro_digital, num_expediente, asunto, ponente, secretario,
+               fecha_resolucion, organo_jurisdiccional, tipo_asunto, votacion, texto, raw_json
+        FROM ejecutorias WHERE status='ok'
+    """):
+        doc = {
+            "source": "scjn_ejecutoria",
+            "source_native_id": str(r["registro_digital"]),
+            "tipo": "ejecutoria",
+            "jerarquia": "pjf_sentencia",
+            "titulo": r["asunto"],
+            "clave": r["num_expediente"],
+            "instancia": r["organo_jurisdiccional"],
+            "fecha_emision": r["fecha_resolucion"],
+            "autor": r["ponente"],
+            "metadata": {"tipo_asunto": r["tipo_asunto"], "votacion": r["votacion"], "secretario": r["secretario"]},
+            "raw_text": r["texto"],
+            "source_url": f"https://bj.scjn.gob.mx/documento/ejecutorias/{r['registro_digital']}",
+        }
+        doc_id = insert_doc(conn, doc)
+        chunks = []
+        if r["asunto"]:           chunks.append({"chunk_type": "titulo", "text": r["asunto"]})
+        if r["texto"]:
+            paragraphs = re.split(r"\n\s*\n", r["texto"])
+            for i, p in enumerate(paragraphs[:50]):
+                if len(p.strip()) > 80:
+                    chunks.append({"chunk_type": "parrafo", "text": p.strip()[:5000]})
+        insert_chunks(conn, doc_id, chunks)
+    conn.commit()
+
+
+# ---------- source: votos (votos.db) --------------------------------------------
+
+def export_votos(conn: sqlite3.Connection, src_db: str = "votos.db"):
+    src = sqlite3.connect(src_db)
+    src.row_factory = sqlite3.Row
+    n = src.execute("SELECT COUNT(*) FROM votos WHERE status='ok'").fetchone()[0]
+    print(f"votos: {n} rows")
+    for r in src.execute("SELECT registro_digital, tipo_voto, ministro, num_expediente, organo, fecha, texto FROM votos WHERE status='ok'"):
+        doc = {
+            "source": "scjn_voto",
+            "source_native_id": str(r["registro_digital"]),
+            "tipo": r["tipo_voto"] or "voto_particular",
+            "jerarquia": "pjf_sentencia",
+            "titulo": f"Voto — exp {r['num_expediente'] or '?'}",
+            "clave": r["num_expediente"],
+            "instancia": r["organo"],
+            "fecha_emision": r["fecha"],
+            "autor": r["ministro"],
+            "raw_text": r["texto"],
+            "source_url": f"https://bj.scjn.gob.mx/documento/votos/{r['registro_digital']}",
+        }
+        doc_id = insert_doc(conn, doc)
+        chunks = []
+        if r["texto"]: chunks.append({"chunk_type": "voto", "text": r["texto"][:8000]})
+        insert_chunks(conn, doc_id, chunks)
+    conn.commit()
+
+
+# ---------- source: acuerdos (acuerdos.db) --------------------------------------
+
+def export_acuerdos(conn: sqlite3.Connection, src_db: str = "acuerdos.db"):
+    src = sqlite3.connect(src_db)
+    src.row_factory = sqlite3.Row
+    n = src.execute("SELECT COUNT(*) FROM acuerdos").fetchone()[0]
+    print(f"acuerdos: {n} rows")
+    for r in src.execute("SELECT id_native, rubro, fuente, fechaPublicacionSemanario, instancia, organoJurisdiccional, raw_json FROM acuerdos"):
+        doc = {
+            "source": "scjn_acuerdo",
+            "source_native_id": r["id_native"],
+            "tipo": "acuerdo",
+            "jerarquia": "pjf_acuerdo",
+            "titulo": r["rubro"],
+            "rubro": r["rubro"],
+            "instancia": r["instancia"],
+            "organo": r["organoJurisdiccional"],
+            "fecha_publicacion": r["fechaPublicacionSemanario"],
+            "metadata": {"fuente": r["fuente"]},
+            "raw_text": r["rubro"] or "",
+        }
+        doc_id = insert_doc(conn, doc)
+        if r["rubro"]:
+            insert_chunks(conn, doc_id, [{"chunk_type": "rubro", "text": r["rubro"]}])
+    conn.commit()
+
+
+# ---------- source: vtaquigraficas (vtaquigraficas.db) -------------------------
+
+def export_vtaquigraficas(conn: sqlite3.Connection, src_db: str = "vtaquigraficas.db"):
+    src = sqlite3.connect(src_db)
+    src.row_factory = sqlite3.Row
+    n = src.execute("SELECT COUNT(*) FROM vtaquigraficas").fetchone()[0]
+    print(f"vtaquigraficas: {n} rows")
+    for r in src.execute("SELECT id_native, organoJurisdiccional, fechaSesion, instancia, anio, raw_json FROM vtaquigraficas"):
+        doc = {
+            "source": "scjn_vtaquigrafica",
+            "source_native_id": r["id_native"],
+            "tipo": "version_taquigrafica",
+            "jerarquia": "pjf_sesion",
+            "titulo": f"Sesión {r['fechaSesion'] or ''} — {r['organoJurisdiccional'] or ''}",
+            "instancia": r["instancia"],
+            "organo": r["organoJurisdiccional"],
+            "fecha_emision": r["fechaSesion"],
+            "metadata": {"anio": r["anio"]},
+            "source_url": f"https://bj.scjn.gob.mx/documento/vtaquigraficas/{r['id_native']}",
+        }
+        doc_id = insert_doc(conn, doc)
+        # Listing alone has no body — would need /documento/vtaquigraficas/{id} for text
+        insert_chunks(conn, doc_id, [{"chunk_type": "titulo", "text": doc["titulo"]}])
+    conn.commit()
+
+
+# ---------- source: votos_sent (votos_sent.db) ----------------------------------
+
+def export_votos_sent(conn: sqlite3.Connection, src_db: str = "votos_sent.db"):
+    src = sqlite3.connect(src_db)
+    src.row_factory = sqlite3.Row
+    n = src.execute("SELECT COUNT(*) FROM votos_sent").fetchone()[0]
+    print(f"votos_sent: {n} rows")
+    for r in src.execute("SELECT id_native, ministroFirma, tipoVoto, expediente, asuntoId, textoVoto, fechaCierreCompleto, tipoAsunto FROM votos_sent"):
+        doc = {
+            "source": "scjn_voto_sentencia",
+            "source_native_id": r["id_native"],
+            "tipo": r["tipoVoto"] or "voto_sentencia",
+            "jerarquia": "pjf_sentencia",
+            "titulo": f"Voto — exp {r['expediente'] or '?'}",
+            "clave": r["expediente"],
+            "fecha_emision": r["fechaCierreCompleto"],
+            "autor": r["ministroFirma"],
+            "metadata": {"asunto_id": r["asuntoId"], "tipo_asunto": r["tipoAsunto"]},
+            "raw_text": r["textoVoto"],
+        }
+        doc_id = insert_doc(conn, doc)
+        if r["textoVoto"]:
+            insert_chunks(conn, doc_id, [{"chunk_type": "voto", "text": (r["textoVoto"] or "")[:8000]}])
+    conn.commit()
+
+
+# ---------- source: legislacion (legislacion.db) -------------------------------
+
+def export_legislacion(conn: sqlite3.Connection, src_db: str = "legislacion.db"):
+    src = sqlite3.connect(src_db)
+    src.row_factory = sqlite3.Row
+    n = src.execute("SELECT COUNT(*) FROM legislacion").fetchone()[0]
+    print(f"legislacion: {n} rows")
+    for r in src.execute("SELECT id_native, ordenamiento, vigencia, estado, fechaPublicado, materia, ambito, pais, raw_json FROM legislacion"):
+        # ambito tells us federal vs estatal vs municipal
+        jerarquia = "federal" if (r["ambito"] or "").lower() == "federal" else "estatal"
+        doc = {
+            "source": "bj_legislacion",
+            "source_native_id": r["id_native"],
+            "tipo": "ley_estatal" if jerarquia == "estatal" else "ley_federal",
+            "jerarquia": jerarquia,
+            "titulo": r["ordenamiento"],
+            "fecha_publicacion": r["fechaPublicado"],
+            "vigente": (r["vigencia"] or "").lower() in ("vigente", "vigentes"),
+            "status_detalle": r["vigencia"],
+            "materias": [r["materia"]] if r["materia"] else [],
+            "metadata": {"estado": r["estado"], "ambito": r["ambito"], "pais": r["pais"]},
+        }
+        doc_id = insert_doc(conn, doc)
+        if r["ordenamiento"]:
+            insert_chunks(conn, doc_id, [{"chunk_type": "titulo", "text": r["ordenamiento"]}])
+    conn.commit()
+
+
 EXPORTERS = {
     "scjn_tesis": export_scjn_tesis,
     "scjn_historica": export_scjn_historica,
@@ -400,6 +573,12 @@ EXPORTERS = {
     "sre": export_sre,
     "corteidh": export_corteidh,
     "dip_leyes": export_dip_leyes,
+    "ejecutorias": export_ejecutorias,
+    "votos": export_votos,
+    "acuerdos": export_acuerdos,
+    "vtaquigraficas": export_vtaquigraficas,
+    "votos_sent": export_votos_sent,
+    "legislacion": export_legislacion,
 }
 
 
@@ -411,18 +590,16 @@ def main():
     conn = init_corpus(CORPUS_DB)
     print(f"corpus DB: {CORPUS_DB}")
     sources = list(EXPORTERS) if args.source == "all" else [args.source]
+    # Map source name → DB path
+    SOURCE_DB = {
+        "scjn_tesis": "tesis.db", "scjn_historica": "sjf.db", "tfja": "tfja.db",
+        "sre": "sre.db", "corteidh": "corteidh.db", "dip_leyes": "dip_leyes.db",
+        "ejecutorias": "ejecutorias.db", "votos": "votos.db",
+        "acuerdos": "acuerdos.db", "vtaquigraficas": "vtaquigraficas.db",
+        "votos_sent": "votos_sent.db", "legislacion": "legislacion.db",
+    }
     for s in sources:
-        path = HERE / f"{s.replace('_', '_')}.db" if s != "scjn_tesis" else HERE / "tesis.db"
-        if s == "scjn_historica":
-            path = HERE / "sjf.db"
-        elif s == "tfja":
-            path = HERE / "tfja.db"
-        elif s == "sre":
-            path = HERE / "sre.db"
-        elif s == "corteidh":
-            path = HERE / "corteidh.db"
-        elif s == "dip_leyes":
-            path = HERE / "dip_leyes.db"
+        path = HERE / SOURCE_DB.get(s, f"{s}.db")
         if not path.exists():
             print(f"  skip {s} (no DB at {path})")
             continue
