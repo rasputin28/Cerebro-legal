@@ -1,0 +1,270 @@
+[
+  {
+    "state": "AGS",
+    "ok_domain": "www.poderjudicialags.gob.mx",
+    "platform": "other",
+    "endpoints": {}
+  },
+  {
+    "state": "BC",
+    "ok_domain": "www.pjbc.gob.mx",
+    "platform": "other",
+    "endpoints": {}
+  },
+  {
+    "state": "BCS",
+    "ok_domain": null,
+    "platform": null,
+    "endpoints": {}
+  },
+  {
+    "state": "CAM",
+    "ok_domain": "www.poderjudicialcampeche.gob.mx",
+    "platform": "wordpress",
+    "endpoints": {
+      "wp-json": true,
+      "custom_post_types": [
+        "wp_global_styles",
+        "wp_font_family",
+        "wp_font_face",
+        "e-floating-buttons",
+        "elementor_library",
+        "elementor_snippet"
+      ]
+    }
+  },
+  {
+    "state": "CHIS",
+    "ok_domain": null,
+    "platform": null,
+    "endpoints": {}
+  },
+  {
+    "state": "CHIH",
+    "ok_domain": null,
+    "platform": null,
+    "endpoints": {}
+  },
+  {
+    "state": "CDMX",
+    "ok_domain": "www.poderjudicialcdmx.gob.mx",
+    "platform": "wordpress",
+    "endpoints": {
+      "wp-json": true,
+      "custom_post_types": [
+        "wp_global_styles",
+        "wp_font_family",
+        "wp_font_face"
+      ]
+    }
+  },
+  {
+    "state": "COAH",
+    "ok_domain": "www.pjecz.gob.mx",
+    "platform": "other",
+    "endpoints": {}
+  },
+  {
+    "state": "COL",
+    "ok_domain": "www.stjcolima.gob.mx",
+    "platform": "other",
+    "endpoints": {}
+  },
+  {
+    "state": "DGO",
+    "ok_domain": null,
+    "platform": null,
+    "endpoints": {}
+  },
+  {
+    "state": "EDOMEX",
+    "ok_domain": "www.pjedomex.gob.mx",
+    "platform": "other",
+    "endpoints": {}
+  },
+  {
+    "state": "GTO",
+    "ok_domain": "www.poderjudicial-gto.gob.mx",
+    "platform": "other",
+    "endpoints": {}
+  },
+  {
+    "state": "GRO",
+    "ok_domain": "tsj-guerrero.gob.mx",
+    "platform": "wordpress",
+    "endpoints": {}
+  },
+  {
+    "state": "HGO",
+    "ok_domain": "www.pjhidalgo.gob.mx",
+    "platform": "aspnet",
+    "endpoints": {}
+  },
+  {
+    "state": "JAL",
+    "ok_domain": "stjjalisco.gob.mx",
+    "platform": "other",
+    "endpoints": {}
+  },
+  {
+    "state": "MICH",
+    "ok_domain": "www.poderjudicialmichoacan.gob.mx",
+    "platform": "other",
+    "endpoints": {}
+  },
+  {
+    "state": "MOR",
+    "ok_domain": "tsjmorelos.gob.mx",
+    "platform": "wordpress",
+    "endpoints": {
+      "wp-json": true,
+      "custom_post_types": [
+        "wp_global_styles",
+        "wp_font_family",
+        "wp_font_face"
+      ]
+    }
+  },
+  {
+    "state": "NAY",
+    "ok_domain": "www.tsjnay.gob.mx",
+    "platform": "wordpress",
+    "endpoints": {
+      "wp-json": true,
+      "custom_post_types": [
+        "envira",
+        "oceanwp_library"
+      ]
+    }
+  },
+  {
+    "state": "NL",
+    "ok_domain": "www.pjenl.gob.mx",
+    "platform": "other",
+    "endpoints": {}
+  },
+  {
+    "state": "OAX",
+    "ok_domain": "www.tribunaloaxaca.gob.mx",
+    "platform": "other",
+    "endpoints": {}
+  },
+  {
+    "state": "PUE",
+    "ok_domain": "www.pjpuebla.gob.mx",
+    "platform": "joomla",
+    "endpoints": {}
+  },
+  {
+    "state": "QRO",
+    "ok_domain": null,
+    "platform": null,
+    "endpoints": {}
+  },
+  {
+    "state": "QROO",
+    "ok_domain": "www.tsjqroo.gob.mx",
+    "platform": "joomla",
+    "endpoints": {}
+  },
+  {
+    "state": "SLP",
+    "ok_domain": "www.stjslp.gob.mx",
+    "platform": "other",
+    "endpoints": {}
+  },
+  {
+    "state": "SIN",
+    "ok_domain": "www.stj-sin.gob.mx",
+    "platform": "other",
+    "endpoints": {}
+  },
+  {
+    "state": "SON",
+    "ok_domain": "stjsonora.gob.mx",
+    "platform": "other",
+    "endpoints": {}
+  },
+  {
+    "state": "TAB",
+    "ok_domain": null,
+    "platform": null,
+    "endpoints": {}
+  },
+  {
+    "state": "TAMS",
+    "ok_domain": "pjetam.gob.mx",
+    "platform": "wordpress",
+    "endpoints": {
+      "wp-json": true,
+      "custom_post_types": [
+        "wp_global_styles",
+        "wp_font_family",
+        "wp_font_face",
+        "persona",
+        "publicacion",
+        "convocatorias",
+        "video_galeria",
+        "area",
+        "estadistica"
+      ]
+    }
+  },
+  {
+    "state": "TLAX",
+    "ok_domain": "tsjtlaxcala.gob.mx",
+    "platform": "wordpress",
+    "endpoints": {
+      "wp-json": true,
+      "custom_post_types": [
+        "wp_global_styles",
+        "wp_font_family",
+        "wp_font_face",
+        "elementor_library"
+      ]
+    }
+  },
+  {
+    "state": "VER",
+    "ok_domain": "www.pjeveracruz.gob.mx",
+    "platform": "wordpress",
+    "endpoints": {
+      "wp-json": true,
+      "custom_post_types": [
+        "wp_global_styles",
+        "wp_font_family",
+        "wp_font_face",
+        "app_sections",
+        "avisos",
+        "avisostdj",
+        "circular_dga",
+        "comisiones_cons",
+        "directorios",
+        "home_sections",
+        "intranet",
+        "licitacion",
+        "modulosv",
+        "nosotros",
+        "pleno_infantil",
+        "plenos",
+        "proveedores",
+        "publicaciones",
+        "semblanzas",
+        "circula_comunicado",
+        "videos_inst"
+      ]
+    }
+  },
+  {
+    "state": "YUC",
+    "ok_domain": "www.pjyucatan.gob.mx",
+    "platform": "other",
+    "endpoints": {}
+  },
+  {
+    "state": "ZAC",
+    "ok_domain": "www.tsjzac.gob.mx",
+    "platform": "other",
+    "endpoints": {}
+  }
+]
